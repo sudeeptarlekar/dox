@@ -1,0 +1,10 @@
+module: SRS_moduleA
+
+feature#1_aspect#2:
+  text: sample text
+
+SRS_feature#1_aspect#2:
+  text: sample text
+
+SRS_feature#1_aspect#2_wrong:
+  text: sample text

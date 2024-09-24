@@ -1,0 +1,73 @@
+module: test_module_2
+
+metadata: |
+          This is the meta data.
+          <html>Exported <b>Jan 1, 2000</b></html>.
+
+enclosed:
+    - images/test.jpeg
+
+test_id_2:
+  text: |
+    You have to follow:
+    <html><img src="images/test.jpeg" width="300px"/></html>
+    And that's<html><br></html>it!
+    <html>
+      <table>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Ag` e</th>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>Smith</td>
+          <td>40</td>
+        </tr>
+        <tr>
+          <td>Jane</td>
+          <td>Doe</td>
+          <td>30</td>
+        </tr>
+      </table>
+    </html>
+  text_english: Another <html><b>test</b></html> RRRREQ
+  text_french: Another <html><b>test</b></html> FRR
+  developer: xy_company
+  asil: ASIL_A
+  refs: test_heading_1, test_heading_2, x_x
+
+test_heading_1: h2 H2
+
+test_heading_2: h1 H1
+
+test_heading_3: h2 H2
+
+test_heading_4: h3 H3
+
+test_heading_5: h3 H3
+
+test_heading_6: h5 H5
+
+test_heading_7: h10 H10
+
+x_x:
+    text: x
+
+y_y:
+    text: y
+    refs: test_id_2
+
+z_z:
+    type: information
+    text: This is an information.
+    text_german: Das ist eine Information.
+    comment: That is a comment.
+    verification_criteria_english: Verify me!
+    miscellaneous: Misc.
+
+heading_multiline_html:
+  type: heading_4
+  text:                     |
+                            <html><b>SHUT-DOWN PHASE</b>:
+                            See system function "Provide Shut-down".</html>

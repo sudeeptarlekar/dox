@@ -1,0 +1,30 @@
+name: Documentation
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+      - name: Install gems
+        run: |
+             gem install rspec -v 3.10.0 --no-document
+      - name: Install packages
+        working-directory: documentation
+        run: |
+             pip install -r requirements.txt
+      - name: Create documentations
+        working-directory: documentation
+        run: |
+             make dist

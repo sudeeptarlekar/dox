@@ -1,0 +1,5 @@
+module: enclosed_array
+
+enclosed:
+    -    enclosedString.dim
+    - enclosedArray.dim

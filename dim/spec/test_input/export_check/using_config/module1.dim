@@ -1,0 +1,9 @@
+module: test_module_1
+
+Test_Export_01:
+    developer:
+    tester:
+    text: Test Module Export 1
+
+enclosed:
+    - images/test.jpeg

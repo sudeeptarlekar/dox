@@ -1,0 +1,22 @@
+﻿SSR ID;TSR Link;Object Type;Text;Topic;Comments Person1;Comments Person2;Comments Person3;Status
+SR_1;;Heading;Generic SSRs;;;;;
+SSR_1;;Information;"This document presents the Software Safety Requirements (SSR) defined per ISO26262 part 6 Functional Safety standard.";Generic SSRs;;Fine for me;;
+SSR_2;;Information;"Abbreviations:
+SSR - Safety Software Requirements
+TSC -
+TSR - Technical Safety Requirements";Generic SSRs;;Fine for me;;Approved 
+SSR_3;;Information;"The Software Safety Requirements are defined for an ECU.
+
+The Functional Safety requirements and the Safety Goals are provided by Customer.";Generic SSRs;;Fine for me;;Approved 
+SSR_4;TSR_1;Requirement;"The relevant functional blocks for this safety function are the following:
+- FB1
+- FB2
+- FB3
+- FB4
+- FB5
+- FB6
+";Generic SSRs;Ready for review;Fine for me;;Approved 
+SSR_5;"TSR_2, TSR_3";Requirement;"The following functions will not be used in the safety context:
+- FB7
+- FB8
+";Generic SSRs;Ready for review;Fine for me;;Approved 

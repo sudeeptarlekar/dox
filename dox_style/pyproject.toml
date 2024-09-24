@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools >= 70.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dox_style"
+dynamic = ["version"]
+authors = [
+  { name="Accenture" },
+]
+description = "Default configuration for documentations regarding style and common options. Includes also several style checks."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+license = {text = "Apache-2.0"}
+
+[project.urls]
+Homepage = "https://github.com/esrlabs/dox"
+Issues = "https://github.com/esrlabs/dox/issues"
+
+[tool.setuptools]
+license-files = ["LICENSE"]
+dynamic.version = {attr = "dox_style.version.__version__"}
+package-data."*" = ['config/_static/*', "LICENSE"]

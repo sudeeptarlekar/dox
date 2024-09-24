@@ -1,0 +1,1498 @@
+document: dox_trace
+
+DoxTrace_Build_Heading:     h1 Execution
+
+DoxTrace_Build_Single:
+  text:                     dox_trace shall support single-threaded builds.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/main.py
+
+DoxTrace_Build_Multi:
+  text:                     dox_trace shall support multi-threaded builds.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/main.py
+
+DoxTrace_Syntax_Heading:    h1 Syntax
+
+DoxTrace_Syntax_Directives: h2 Directives
+
+DoxTrace_Syntax_Types:
+  text:                     |
+                            dox_trace shall provide the following directives:
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            - information
+                            - mod
+                            Note: they are called generically "specifications" in this document regardless of the type.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/main.py
+
+DoxTrace_Syntax_Structure:
+  text:                     |
+                            dox_trace shall use the following syntax for the directives:
+                            .. <type>:: <ID>
+                                :<attribute1>: <value1>
+                                :<attribute2>: <value2>
+                                <empty line>
+                                <content>
+                            The ID is mandatory, the attributes are optional. Also the content can be omitted.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/main.py
+
+DoxTrace_Syntax_General:    h2 General Handling
+
+DoxTrace_Syntax_Anchor:
+  text:                     The specifications shall be referencable by their ID like any other regular anchor.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/roles.py
+
+DoxTrace_Syntax_Stripped:
+  text:                     All values shall be stripped (removing leading and trailing whitespaces).
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Syntax_Empty:
+  text:                     Attributes with empty values, "" or '' shall be treated as empty strings.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Syntax_Check:
+  type: information
+  text:                     dox_trace does not check the general syntax of RST files. If e.g. a directive does not match
+                            Sphinx syntax, Sphinx aborts the build and returns with an exit code != 0. dox_trace does
+                            not check if the values are correct, e.g. if an invalid tag is used. This is done by the Dim
+                            tool after an export.
+  status: valid
+
+DoxTrace_Syntax_Multi:
+  text:                     |
+                            The attributes "tags", "verification_methods", "sources", and "refs" shall be treated as comma separated lists.
+                            When loading the values the following is done to harmonize further processing of the data like displaying in HTML:
+                            - split by ","
+                            - strip
+                            - remove duplicated values
+                            - remove empty values, "" and ''
+                            - join again with ", " as separator.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Syntax_FreeText:
+  text:                     All other attributes and the content shall be treated as free text supporting any Sphinx
+                            syntax like images, tables, etc.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/helper.py
+
+DoxTrace_Syntax_Attributes: h2 Attributes
+
+DoxTrace_Syntax_Newlines:
+  text:                     Text attributes shall preserve newlines except a line ends with a backslash.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Syntax_Status:
+  text:                     |
+                            The attribute "status" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            - information
+                            - mod
+                            The default value shall be "draft".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_ReviewStatus:
+  text:                     |
+                            The attribute "review_status" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            - information
+                            - mod
+                            The default value shall be "not_reviewed" for input requirements, otherwise "accepted".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Asil:
+  text:                     |
+                            The attribute "asil" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            - information
+                            - mod
+                            The default value shall be "not_set".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Cal:
+  text:                     |
+                            The attribute "cal" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            - information
+                            - mod
+                            The default value shall be "not_set".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Security:
+  text:                     |
+                            The attribute "security" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            - information
+                            - mod
+                            The default value shall be "not_set".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_SecurityToCal:
+  text:                     |
+                            If
+                            - the config parameter "dox_trace_security_backward" is not set to "True" AND
+                            - "cal" is not set AND
+                            - "security" is set",
+                            the attribute "cal" shall be derived from "security" with the following mapping:
+                            - "yes" -> "CAL_4"
+                            - "no" -> "QM"
+                            - "not_set" -> "not_set"
+                            Otherwise it shall be ignored.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Syntax_CalToSecurity:
+  text:                     |
+                            If
+                            - the config parameter "dox_trace_security_backward" is set to "True" AND
+                            - "cal" is set AND
+                            - "security" is not set",
+                            the attribute "security" shall be derived from "cal" with the following mapping:
+                            - "CAL_1" -> "yes"
+                            - "CAL_2" -> "yes"
+                            - "CAL_3" -> "yes"
+                            - "CAL_4" -> "yes"
+                            - "QM" -> "no"
+                            - "not_set" -> "not_set"
+                            Otherwise it shall be ignored.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Syntax_Reuse:
+  text:                     |
+                            The attribute "reuse" shall be available for:
+                            - mod
+                            The default value shall be empty.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Usage:
+  text:                     |
+                            The attribute "usage" shall be available for:
+                            - mod
+                            The default value shall be empty.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Developer:
+  text:                     |
+                            The attribute "developer" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            - mod
+                            The default value shall be empty.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Tester:
+  text:                     |
+                            The attribute "tester" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            Ignore:
+                            - For interface with ID starting with "SMD_" this attribute shall be ignored.
+                            Default:
+                            - The default value shall be empty.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_TestSetups:
+  text:                     |
+                            The attribute "test_setups" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            Ignore:
+                            - For interface with ID starting with "SMD_" this attribute shall be ignored.
+                            Default:
+                            - For srs, spec and unit the default value shall be "off_target" if the ID starts with "SMD_", otherwise "on_target".
+                            - Otherwise "none".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_VerificationMethods:
+  text:                     |
+                            The attribute "verification_methods" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            Ignore:
+                            - For interface with ID starting with "SMD_" this attribute shall be ignored.
+                            Default:
+                            - For srs, spec and unit the default value shall be "off_target" if the ID starts with "SMD_", otherwise "on_target".
+                            - Otherwise "none".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_TestSetupsToVerificationMethods:
+  text:                     |
+                            If
+                            - the config parameter "dox_trace_test_setups_backward" is not set to "True" AND
+                            - "verification_methods" is not set AND
+                            - "test_setups" is set",
+                            the attribute "verification_methods" shall be set to the value from "test_setups".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Syntax_VerificationMethodsToTestSetups:
+  text:                     |
+                            If
+                            - the config parameter "dox_trace_test_setups_backward" is set to "True" AND
+                            - "test_setups" is not set AND
+                            - "verification_methods" is set",
+                            the attribute "test_setups" shall be set to the value from "verification_methods".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Syntax_Tags:
+  text:                     |
+                            The attribute "tags" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            - information
+                            The default shall be empty.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_VerificationCriteria:
+  text:                     |
+                            The attribute "verification_criteria" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            For interface with ID starting with "SMD_" this attribute shall be ignored.
+                            Default shall be empty.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Comment:
+  text:                     |
+                            The attribute "comment" shall be available for:
+                            - requirement
+                            - information
+                            Default shall be empty.
+                            It shall be ignored if category is not "input".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Miscellaneous:
+  text:                     |
+                            The attribute "miscellaneous" shall be available for:
+                            - requirement
+                            - information
+                            Default shall be empty.
+                            It shall be ignored if category is not "input".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Feature:
+  text:                     |
+                            The attribute "feature" shall be available for:
+                            - requirement
+                            Default shall be empty.
+                            It shall be ignored if category is not "input".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_ChangeRequest:
+  text:                     |
+                            The attribute "change_request" shall be available for:
+                            - requirement
+                            Default shall be empty.
+                            It shall be ignored if category is not "input".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Sources:
+  text:                     |
+                            The attribute "sources" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            The default shall be empty.
+                            It shall be used to reference source code files.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Refs:
+  text:                     |
+                            The attribute "refs" shall be available for:
+                            - srs
+                            - spec
+                            - unit
+                            - interface
+                            - requirement
+                            - information
+                            The default shall be empty.
+                            It shall be used to reference other specifications.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Syntax_Location:
+  text:                     |
+                            The attribute "location" shall be available for:
+                            - mod
+                            The default shall be empty.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Syntax_Category:
+  text:                     |
+                            The attribute "category" shall be available for:
+                            - requirement
+                            - information
+                            The default shall be "input".
+                            Note: this attribute is used by the Dim tool, it's not intended to be used manually.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Syntax_IgnoreInExport:
+  text:                     |
+                            The attribute "ignore_in_export" shall be available for all types.
+                            It shall have no value. It's either set or not set.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Checks_Heading:    h1 Checks
+
+DoxTrace_Checks_Cyclic:
+  text:                     |
+                            dox_trace shall check for cyclic references of specifications.
+                            If a cyclic reference is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/checks.py
+
+DoxTrace_Checks_InvalidRefs:
+  text:                     |
+                            dox_trace shall check for references in "refs" attributes which do not point to another specification but to other anchors.
+                            If such reference is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/checks.py
+
+DoxTrace_Checks_Case:
+  text:                     |
+                            Sphinx is internally converting anchors and references to lower case, which means references with incorrect case are also working.
+                            To avoid confusion and problems in further processing of the specifications, Sphinx shall check for references in "refs" attributes which have incorrect case.
+                            If such reference is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/checks.py
+
+DoxTrace_Checks_Sources:
+  text:                     |
+                            dox_trace shall check for source files specified in "sources" attributes in "srs", "spec", "unit" and "interface" which do not exist.
+                            If such a source file is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+                            dox_trace shall not check "sources" in "requirements", because this is already done in Dim and the source files might not be exported by Dim.
+                            dox_trace shall accept paths relative to the following two locations:
+                            - the folder which contains the RST-file OR
+                            - the parent folder of the closest "doc"-folder: <path>/doc/**/<RST-file>.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Checks_Comments:
+  text:                     |
+                            The syntactical difference between a directive and a comment is very small in Sphinx.
+                            To avoid unintended comments when writing specifications, Sphinx shall check if the first line of a comment contains only "srs", "spec", "mod", "interface" or "unit" beside other non-word characters.
+                            If such comment is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/checks.py
+
+DoxTrace_Checks_Unique:
+  text:                     |
+                            dox_trace shall check if an ID is used twice.
+                            If such an ID is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/env.py
+
+DoxTrace_Checks_Newline:
+  text:                     |
+                            dox_trace shall check if an ID contains a newline.
+                            If such an ID is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Checks_Naming:
+  text:                     |
+                            dox_trace shall check if an IDs does not follow the naming scheme <prefix>_<string>_<string>.
+                            - <string> must not be empty and not contain additional underscores
+                            - <prefix> depends on the type:
+                                - srs: SRS
+                                - mod, interface: SWA
+                                - spec: SWA or SMD
+                                - unit: SMD
+                            If such an ID is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Checks_NamingDeprecated:
+  text:                     |
+                            dox_trace shall provide a Sphinx configuration variable "dox_trace_allow_deprecated".
+                            If set to True, dox_trace shall use a less strict naming scheme for mod, spec, unit and interface:
+                            - <prefix>_<string>
+                            - <string> must not be empty and not start with an underscore
+                            - the <prefix> can be SWA or SMD
+                            If a violation is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Checks_SphinxVersion:
+  text:                     |
+                            dox_trace shall check if Sphinx 6.2+ is used. This is needed due to an important bugfix for nested parsing.
+                            If an older Sphinx version is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/main.py
+
+DoxTrace_Checks_PythonVersion:
+  text:                     |
+                            dox_trace shall check if Python 3.8+ is used, which is needed by Sphinx 6.2.
+                            If an older Python version is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/main.py
+
+DoxTrace_HTML_Heading:      h1 HTML
+
+DoxTrace_HTML_General:      h2 General
+
+DoxTrace_HTML_Incremental:
+  text:                     dox_trace shall support the HTML-transformer of Sphinx including incremental builds. Only
+                            the mandatory pages shall be rebuilt (e.g. when adding a new specification).
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/roles.py
+
+DoxTrace_HTML_Version:
+  text:                     If the version of this extension has changed compared to the previous build, all files shall
+                            be rebuilt to avoid inconsistent data.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/main.py
+
+DoxTrace_HTML_Table:
+  text:                     Every specification shall be rendered as table with a black border containing all attributes
+                            which belong to this specification.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/_static/dox_trace.css
+
+DoxTrace_HTML_Background:
+  text:                     The table background shall be light-grey except for the actual content of the specification
+                            which shall be white.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Attributes:
+  text:                     |
+                            Regular attribute names shall be black bold.
+                            Regular attribute values shall be black normal.
+                            Upstream and derived attribute names shall be grey bold.
+                            Upstream and derived attribute values shall be grey normal.
+                            Note: The content of some attributes can overwrite this behaviour, see DoxTrace_Syntax_FreeText.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Strike:
+  text:                     |
+                            The complete specification shall be greyed out and struck through if:
+                            - "status" is "invalid"  OR
+                            - "review_status" is "rejected" or "not_relevant"
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/_static/dox_trace.css
+
+DoxTrace_HTML_Content:
+  text:                     If the content is empty, it shall be displayed as "[missing]".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_RegularAttributes: h2 Regular Attributes
+
+DoxTrace_HTML_TypeID:
+  text:                     |
+                            The specification type and ID shall be rendered in the following form: "[<type>] <ID>", e.g. "[unit] SMD_MyModule_Abc"
+                            - The complete string shall have a white background.
+                            - The types "requirement", "spec", "unit" and "interface" shall be rendered in black bold font.
+                            - The type "information" shall be rendered in light-grey bold font.
+                            - The ID shall be rendered as link to itself (so the anchor can be simply copied from the address bar of the browser).
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/roles.py,
+           dox_trace/_static/dox_trace.css
+
+DoxTrace_HTML_ReviewStatus:
+  text:                     |
+                            The "review_status" attribute shall only be shown if:
+                            - it is not "accepted" OR
+                            - the specification is an input requirement.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Reuse:
+  text:                     The "reuse" attribute shall be displayed as "-" if it is empty.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Usage:
+  text:                     The "usage" attribute shall be displayed as "-" if it is empty.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Developer:
+  text:                     |
+                            If the "developer" attribute is empty it shall be displayed as:
+                            - "[missing]" if the specification is not struck through
+                            - "-" otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Tester:
+  text:                     |
+                            If the "tester" attribute is empty it shall be displayed as:
+                            - "[missing]"
+                                - if the specification is not struck through AND
+                                - "verification_methods" is not "none"
+                            - "-" otherwise
+                            "tester" shall not be displayed for interfaces with ID starting with "SMD_".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_TestSetups:
+  text:                     |
+                            If the config parameter "dox_trace_test_setups_backward" is not set to "True", the "test_setups" attribute shall not be displayed.
+                            If the "test_setups" attribute is empty it shall be displayed as "-".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_VerificationMethods:
+  text:                     |
+                            If the config parameter "dox_trace_test_setups_backward" is set to "True", the "verification_methods" attribute shall not be displayed.
+                            If the "verification_methods" attribute is empty it shall be displayed as "-".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Cal:
+  text:                     If the config parameter "dox_trace_security_backward" is set to "True", the "cal" attribute
+                            shall not be displayed.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Security:
+  text:                     If the config parameter "dox_trace_security_backward" is not set to "True", the "security"
+                            attribute shall not be displayed.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Tags:
+  text:                     If the "tags" attribute is empty, it shall be displayed as "-".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_VerificationCriteria:
+  text:                     |
+                            If the "verification_criteria" attribute is empty, it shall be displayed as:
+                            - "[missing]" for software requirements without "tool" in "tags" which are not struck through
+                            - "-" otherwise
+                            "verification_criteria" shall not be displayed for interfaces with ID starting with "SMD_".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Comment:
+  text:                     If the "comment" attribute is empty, it shall be displayed as "-".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Miscellaneous:
+  text:                     If the "miscellaneous" attribute is empty, it shall be displayed as "-".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Feature:
+  text:                     If the "feature" attribute is empty, it shall be displayed as "-".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_ChangeRequest:
+  text:                     If the "change_request" attribute is empty, it shall be displayed as "-".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Sources:
+  text:                     |
+                            The attribute "sources" shall only be shown for:
+                            - "unit"
+                            - "interface" if the ID starts with SMD_
+                            - value is not empty.
+                            If the value is empty (for "unit" and SMD "interfaces"), it shall be displayed as:
+                            - "[missing]" if "covered" is not in "tags" and the specification is not struck through
+                            - "-" otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_Location:
+  text:                     |
+                            If the attribute "location" is empty, it shall be displayed as:
+                            - "[missing]" if the specification is not struck through
+                            - "-" otherwise
+                            If the attribute "location" is not empty, it shall be displayed as
+                            - link to the corresponding module if location + "doc/index.rst" exists
+                            - as is if the specification is struck through
+                            - as is in red otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_CalculatedAttributes: h2 Additional Calculated Attributes
+
+DoxTrace_HTML_UpstreamRefs:
+  text:                     |
+                            dox_trace shall derive from "refs" attribute backward references.
+                            dox_trace shall, based on these (backward) references, compile a list of upstream and downstream references per specification.
+                            Upstream references are (backward) references to a higher category and backward references to the same category.
+                            Downstream references are (backward) references to a lower category and explicit references to the same category.
+                            Categories are top-down: input, system, software, architecture and module.
+                            dox_trace shall show the upstream references in an "Upstream Reference" field as comma separated, clickable links to the referenced specifications.
+                            If no upstream references are available, the field shall shall be displayed as:
+                            - "[missing]" if
+                            a) "tool" is not in "tags" AND
+                            b) the specification is not struck through AND
+                            c) the type is not "information" AND
+                            d) the category is not "input"
+                            - "-" otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_DownstreamRefs:
+  text:                     |
+                            dox_trace shall show the downstream references in an "Downstream Reference" field as comma separated, clickable links to the referenced specifications.
+                            If no downstream references are available, the field shall shall be displayed as:
+                            - "[missing]" if
+                            a) "covered" is not in "tags" AND
+                            b) the specification is not struck through AND
+                            c) the type is not "information" or "unit" AND
+                            d) the specification is not of type "interface" in category "module"
+                            - "-" otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_HTML_RefsRed:
+  text:                     |
+                            dox_trace shall provide a Sphinx configuration variable "dox_trace_allow_undefined_refs".
+                            If explicitly set to True, dox_trace shall suppress warnings about undefined references in the "refs" attribute.
+                            Instead, these IDs shall be displayed in red in "Downstream References".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/unresolved_refs.py
+
+DoxTrace_HTML_RefsExport:
+  text:                     dox_trace shall not export unresolved references.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/unresolved_refs.py
+
+DoxTrace_HTML_UpstreamAsil:
+  text:                     |
+                            An "Upstream Asil" attribute shall be displayed if the category is not "input".
+                            It shall be a comma separated list of all "asil" attributes from direct upstream references, but not from indirect upstream references.
+                            Upstream references to "information" and struck through specifications shall be ignored.
+                            The values shall be unique.
+                            If the list is empty, "-" shall be displayed.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/backward_refs.py
+
+DoxTrace_HTML_UpstreamCal:
+  text:                     |
+                            An "Upstream Cal" attribute shall be displayed if the category is not "input".
+                            It shall be a comma separated list of all "cal" attributes from direct upstream references, but not from indirect upstream references.
+                            Upstream references to "information" and struck through specifications shall be ignored.
+                            The values shall be unique.
+                            If the list is empty, "-" shall be displayed.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/backward_refs.py
+
+DoxTrace_HTML_UpstreamSecurity:
+  text:                     |
+                            If
+                            - the config parameter "dox_trace_security_backward" is set to "True" AND
+                            - the category is not "input"
+                            an "Upstream Security" attribute shall be displayed instead of "Upstream Cal".
+                            It shall be a comma separated list of all "security" attributes from direct upstream references, but not from indirect upstream references.
+                            Upstream references to "information" and struck through specifications shall be ignored.
+                            The values shall be unique.
+                            If the list is empty, "-" shall be displayed.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/backward_refs.py
+
+DoxTrace_HTML_UpstreamTags:
+  text:                     |
+                            An "Upstream Tags" attribute shall be displayed if neither the category is "input" nor the type is "mod".
+                            It shall be a comma separated list of all tags from direct upstream references, but not from indirect upstream references.
+                            Upstream references to "information" and struck through specifications shall be ignored.
+                            The values shall be unique.
+                            If the list is empty, "-" shall be displayed.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/backward_refs.py
+
+DoxTrace_HTML_DerivedFeature:
+  text:                     |
+                            A "Derived Feature" attribute shall be displayed except for category "input" and types "information" and "mod".
+                            It shall be a comma separated list of all "feature" attributes from direct and indirect upstream references which are input requirements.
+                            Upstream references to "information" and struck through specifications shall be ignored.
+                            The values shall be unique.
+                            If the list is empty, "-" shall be displayed.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/backward_refs.py
+
+DoxTrace_HTML_DerivedChangeRequest:
+  text:                     |
+                            A "Derived Change Request" attribute shall be displayed except for category "input" and types "information" and "mod".
+                            It shall be a comma separated list of all "change request" attributes from direct and indirect upstream references which are input requirements.
+                            Upstream references to "information" and struck through specifications shall be ignored.
+                            The values shall be unique.
+                            If the list is empty, "-" shall be displayed.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/backward_refs.py
+
+DoxTrace_HTML_Configuration: h2 Configuration
+
+DoxTrace_HTML_ConfigDirective:
+  text:                     dox_trace shall provide the argument-less directive ".. dox_trace_config::". This directive
+                            shall generate a configuration table to change the HTML output on-the-fly using jQuery
+                            described below.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/_static/dox_trace.js
+
+DoxTrace_HTML_ConfigStorage:
+  text:                     The configuration shall be stored permanently in local storage of the browser based on the
+                            Sphinx project name.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/_static/dox_trace.js
+
+DoxTrace_HTML_ConfigReadingMode:
+  text:                     |
+                            The configuration directive shall provide a setting to hide/show attributes:
+                            - Show all
+                            - Hide empty
+                            - Hide empty and "[missing]"
+                            - Hide all
+                            Type, ID and the content shall always be shown.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/config.py,
+           dox_trace/_static/dox_trace.js
+
+DoxTrace_HTML_EnclosedFiles: h2 Enclosed Files
+
+DoxTrace_HTML_EnclosedDirective:
+  text:                     dox_trace shall provide a directive "enclosed" which copies all listed files to the build
+                            folder.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/enclosed.py
+
+DoxTrace_HTML_TraceabilityReport: h2 Traceability Report
+
+DoxTrace_HTML_TraceabilityReportInput:
+  text:                     dox_trace shall provide a Sphinx directive to create a traceability report for input
+                            requirements.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/report.py,
+           report_generic.py,
+           report_table.py,
+           report_input.py
+
+DoxTrace_HTML_TraceabilityReportSoftware:
+  text:                     dox_trace shall provide a Sphinx directive to create a traceability report for software
+                            requirements.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/report.py,
+           report_generic.py,
+           report_table.py
+
+DoxTrace_HTML_TraceabilityReportArchitecture:
+  text:                     dox_trace shall provide a Sphinx directive to create a traceability report for software
+                            architecture.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/report.py,
+           report_generic.py,
+           report_table.py
+
+DoxTrace_HTML_TraceabilityReportModule:
+  text:                     dox_trace shall provide a Sphinx directive to create a traceability report for software
+                            module design.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/report.py,
+           report_generic.py,
+           report_table.py
+
+DoxTrace_HTML_TraceabilityReportSource:
+  text:                     dox_trace shall provide a Sphinx directive to create a traceability report for source files.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/report.py,
+           report_generic.py,
+           report_table.py,
+           report_source.py
+
+DoxTrace_HTML_TraceabilityReportUnknownCategory:
+  text:                     If the traceability report is specified for an unknown category, dox_trace shall abort the
+                            build and print an appropriate error message.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/report.py
+
+DoxTrace_HTML_TraceabilityReportUnknownModule:
+  text:                     For the traceability report, the module names need to be determined. If that is not
+                            possible, the module name "Unknown" shall be used as fallback.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/report.py
+
+DoxTrace_HTML_TraceabilityReportIgnore:
+  text:                     dox_trace shall ignore specifications with attribute "ignore_in_export" for the traceability
+                            report.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/report.py
+
+DoxTrace_HTML_TraceabilityDeveloper:
+  text:                     The directive for the traceability report shall provide an option to specify the developer
+                            to select the relevant entries. This option shall be mandatory for all reports except for
+                            source files. dox_trace shall be tolerant applying this option regarding whitespaces and
+                            capitalization.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/report.py,
+           report_generic.py,
+           report_input.py,
+           report_architecture.py,
+           report_module.py
+
+DoxTrace_HTML_UndefinedRefsList: h2 List of Undefined References
+
+DoxTrace_HTML_UndefinedRefsListDirective:
+  text:                     dox_trace shall provide the argument-less directive ".. undefined_refs::". This directive
+                            shall generate a list of all specifications, which have undefined references.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/checks.py,
+           dox_trace/undefined_refs.py
+  refs: DoxTrace_HTML_RefsRed
+
+DoxTrace_Export_Heading:    h1 Export
+
+DoxTrace_Export_Config:
+  text:                     |
+                            dox_trace shall provide a Sphinx configuration variable "dox_trace_dim_root".
+                            If set, dox_trace shall export all "srs", "spec", "unit" "interface" and "mod" elements to this folder in Dim format.
+                            If not set, no export shall be made.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+
+DoxTrace_Export_Filenames:
+  text:                     |
+                            The filenames shall be "<dox_trace_dim_root>/<prefix>/<docname>.dim":
+                            - <dox_trace_dim_root> is defined by the configuration variable
+                            - <prefix> shall either be "srs", "swa" or "smd", depending on the ID to be exported
+                            - <docname> is given by Sphinx, e.g. if the specifications are in <source root>/a/b/c.rst, <docname> will be "a/b/c"
+                            Note, that <source root> is defined by the user when calling the Sphinx executable.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+
+DoxTrace_Export_Delete:
+  text:                     |
+                            Before doing the export, dox_trace shall delete all files in the "dox_trace_dim_root" folder from a potential previous export, which means:
+                            - "<dox_trace_dim_root>/srs/**/*.dim",
+                            - "<dox_trace_dim_root>/swa/**/*.dim" and
+                            - "<dox_trace_dim_root>/smd/**/*.dim".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+
+DoxTrace_Export_ModuleName:
+  text:                     |
+                            The "module" attribute of the Dim file shall taken from the first specification of the particular RST-files with the following regex: "^[^_]+_[^_]+".
+                            This means the module name of "SWA_MyFeature_Abc" is "SWA_MyFeature".
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+
+DoxTrace_Export_IDs:
+  text:                     The IDs of the Dim requirements shall be the same as the dox_trace specification IDs.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+
+DoxTrace_Export_Attributes:
+  text:                     The attributes for the Dim requirements shall be exported 1:1 from the dox_trace
+                            specifications with the exceptions stated below.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Export_Category:
+  text:                     |
+                            "category" attributes shall never be exported.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+
+DoxTrace_Export_Cal:
+  text:                     If the config parameter "dox_trace_security_backward" is set to "True", the "cal" attribute
+                            shall not be exported.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Export_Security:
+  text:                     If the config parameter "dox_trace_security_backward" is not set to "True", the "security"
+                            attribute shall not be exported.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Export_VerificationCriteria:
+  text:                     |
+                            If type is "interface" and the ID starts with "SMD_", "verification_criteria" shall not be exported.
+                            If "verification_criteria" is set, it shall be replaced by "See Sphinx documentation." for the export.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Export_Reuse:
+  text:                     |
+                            "reuse" attributes shall never be exported.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+
+DoxTrace_Export_Usage:
+  text:                     |
+                            "usage" attributes shall never be exported.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Export_Location:
+  text:                     |
+                            "location" attributes shall never be exported.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_Export_Content:
+  text:                     |
+                            The specification content has no explicit attribute name in dox_trace. For the export the name "text" shall be used.
+                            The value shall always be replaced by "See Sphinx documentation." for the export if the content is not empty.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Export_Tester:
+  text:                     |
+                            "tester" shall be set to "" for the export if:
+                            - type is "mod"
+                            - type is "interface" and the ID starts with "SMD_"
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Export_TestSetups:
+  text:                     |
+                            If the config parameter "dox_trace_test_setups_backward" is not set to "True", the "test_setups" attribute shall not be exported.
+                            "test_setups" shall be set to "none" for the export if:
+                            - type is "mod"
+                            - type is "interface" and the ID starts with "SMD_"  tags: tool, covered, tested
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Export_VerificationMethods:
+  text:                     |
+                            If the config parameter "dox_trace_test_setups_backward" is set to "True", the "verification_methods" attribute shall not be exported.
+                            "verification_methods" shall be set to "none" for the export if:
+                            - type is "mod"
+                            - type is "interface" and the ID starts with "SMD_"
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/dim_write.py
+
+DoxTrace_Export_Unit:
+  text:                     The "tags" attribute shall be extended with "unit" for "unit" specifications for the export.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+
+DoxTrace_Export_Interface:
+  text:                     The "tags" attribute shall be extended with "interface" for "interface" specifications for
+                            the export.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+
+DoxTrace_Export_Mod:
+  text:                     The "tags" attribute shall be extended with "covered" for "mod" specifications for the
+                            export if the attribute "location" points to a valid module.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+  refs: DoxTrace_HTML_Location
+
+DoxTrace_Export_IgnoreInExport:
+  text:                     If "ignore_in_export" is set, the particular specification shall not be exported.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/dim_write.py
+
+DoxTrace_Custom_Heading:    h1 Custom Attributes
+
+DoxTrace_CustomGeneral_Heading: h2 Configuration
+
+DoxTrace_CustomGeneral_Config:
+  text:                     |
+                            dox_trace shall provide a Sphinx configuration variable "dox_trace_custom_attributes", which shall be a hash with:
+                            
+                            - key: "name" of the attribute
+                            - value: parameter hash for the attribute (details see following requirements)
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomName_Heading: h2 Name
+
+DoxTrace_CustomName_Available:
+  text:                     dox_trace shall make the attributes available for specifications using the configured names.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomName_Conflict:
+  text:                     |
+                            dox_trace shall check if the specified attribute names already exist.
+                            If a name conflict is detected, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomDirectives_Heading: h2 Directives
+
+DoxTrace_CustomDirectives_Syntax:
+  text:                     A custom attribute shall have a mandatory "directives" parameter with a non-empty list of
+                            all specification types for which the attribute shall be available.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+  refs: DoxTrace_Syntax_Types
+
+DoxTrace_CustomDirectives_Check:
+  text:                     If that "directives" parameter is not provided, the build shall be aborted with exit code !=
+                            0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomCategories_Heading: h2 Categories
+
+DoxTrace_CustomCategories_Syntax:
+  text:                     If the "directives" parameter includes "requirement" or "information, the custom attribute
+                            shall also have a "categories" parameter with a non-empty list of all category types for
+                            which the attribute shall be available.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomCategories_Value:
+  text:                     |
+                            The allowed values for "categories" shall be "system", "software" and "input".
+                            If another value is used, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: dox_trace/directives.py
+
+DoxTrace_CustomType_Heading: h2 Type
+
+DoxTrace_CustomTypes_Syntax:
+  text:                     A custom attribute shall have a mandatory "type" parameter with the allowed
+                            values "text", "enum" and "refs".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomTypes_Text:
+  text:                     |
+                            If the "type" parameter is set to "text", dox_trace shall handle this parameter as RST syntax and format the output accordingly.
+                            Empty "text" attributes shall be rendered as "-".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomTypes_Enum:
+  text:                     |
+                            If the "type" parameter is set to "enum", dox_trace shall handle this parameter as a comma separated string list and format the output accordingly.
+                            Empty "enum" attributes shall be rendered as "-".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomTypes_Refs:
+  text:                     |
+                            If the "type" parameter is set to "refs", dox_trace shall handle this parameter as a comma separated list of Sphinx references and format the output accordingly.
+                            Empty "refs" attributes shall be rendered as "-".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomDefault_Heading: h2 Default
+
+DoxTrace_CustomDefault_Syntax:
+  text:                     |
+                            A custom attribute shall have an optional "default" parameter.
+                            If the custom attribute is not set in a specification, this default value shall be taken.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomDefault_Type:
+  text:                     |
+                            The type of the "default" parameter shall be:
+                            
+                            - string for attribute type "text"
+                            - list for attribute types "enum" and "refs"
+                            
+                            If another type is used, the build shall be aborted with exit code != 0 and an error message be printed to the console.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomDefault_Default:
+  text:                     |
+                            If "default" is not set, the value of this parameter shall be treated as:
+                            
+                            - empty string for attribute type "text"
+                            - empty list for attribute types "enum" and "refs"
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_CustomExport_Heading: h2 Export
+
+DoxTrace_CustomExport_Syntax:
+  text:                     |
+                            A custom attribute shall have an optional "export" parameter with the allowed values "yes" and "no".
+                            If not set, the value of this parameter shall be treated as "no".
+                            
+                            Attributes shall be exported to Dim if the "export" parameter is set to "yes".
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/config.py,
+           dox_trace/directives.py
+
+DoxTrace_Properties_Heading: h1 Properties
+
+dox_trace_properties_file:
+  text:                     |
+                            dox_trace shall provide a Sphinx configuration variable "dox_trace_properties_file".
+                            This file shall be a YAML file consisting of a hash with an ID as key and another hash as value.
+                            The inner hashes shall be the attribute key/value pairs for specifications.
+                            
+                            Example:
+                            
+                            SMD_myQmModule: { asil: QM, cal: QM }
+                            SWA_mySafeFeature: { asil: ASIL_B, cal: CAL_2 }
+                            _default_: { asil: ASIL_D, cal: CAL_2 }
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/yaml.py
+
+DoxTrace_Properties_Use:
+  text:                     |
+                            If an attribute or the content is not explicitly specified in an RST file, dox_trace shall try to find a matching property before falling back to the default value.
+                            
+                            The IDs shall be matched in the following order:
+                            
+                            - prio 1: property ID = specification ID, e.g. SWA_Feature_XY
+                            - prio 2: property ID = specification ID until one character before the second "_", e.g. SWA_Feature
+                            - prio 3: property ID = specification ID until one character before the first "_", e.g. SWA
+                            - prio 4: property ID = "_default_"
+                            
+                            If an ID including the attribute name is found, the value shall be used for the corresponding specification.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/properties.py
+
+DoxTrace_Properties_Custom:
+  text:                     Properties shall also apply to custom attributes.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/directives.py,
+           dox_trace/properties.py
+
+DoxTrace_Properties_Standalone:
+  text:                     |
+                            The properties shall also be usable as roles and directives independent from specifications:
+                            
+                            - role: :prop:`<key>:<value>`
+                            - directive: .. prop:: <key>:<value>
+                            
+                            The fallback "_default_" shall be applied here the same way as for specifications.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           dox_trace/yaml.py,
+           dox_trace/properties.py

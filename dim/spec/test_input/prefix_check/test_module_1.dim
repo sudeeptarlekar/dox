@@ -1,0 +1,6 @@
+module: test1-test
+
+ESR-0007-0565:
+  text: test requirement
+  verification_criteria: xy shall be ab
+  test_setups: on_target

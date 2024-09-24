@@ -1,0 +1,7 @@
+Config:
+  - originator:
+    files:
+      - module.dim
+    category: "input"
+
+Properties: "properties.yaml"

@@ -1,0 +1,36 @@
+module: test_module_4
+
+test_4_normal:
+    text: yay
+
+test_4_asil:
+    text: yay
+    asil: ASIL_B
+
+test_4_cal:
+    text: yay
+    cal: CAL_4
+
+test_4_integrity:
+    text: yay
+    tags: integrity
+
+test_4_draft:
+    text: yay
+    status: draft
+
+test_4_invalid:
+    text: yay
+    status: invalid
+
+test_4_rejected:
+    text: yay
+    review_status: rejected
+
+test_4_all:
+    text: yay
+    asil: ASIL_B(D)
+    status: draft
+    tags: memory, integrity
+    cal: CAL_4
+    review_status: rejected

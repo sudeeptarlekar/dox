@@ -1,0 +1,7 @@
+Config:
+  - originator: Customer
+    files: resolve_input.dim
+    category: input
+  - originator: CompanyName
+    files: resolve_module.dim
+    category: module

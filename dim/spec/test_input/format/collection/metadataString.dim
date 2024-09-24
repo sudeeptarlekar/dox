@@ -1,0 +1,6 @@
+  module: metadata_string
+
+  metadata: >
+            [Version 1.0] LAH xy
+
+            Exported at January 1, 2000

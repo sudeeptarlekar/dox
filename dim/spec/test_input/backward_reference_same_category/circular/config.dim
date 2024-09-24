@@ -1,0 +1,7 @@
+Config:
+  - originator: CompanyName
+    files:
+      - module1.dim
+      - module2.dim
+      - module3.dim
+    category: software

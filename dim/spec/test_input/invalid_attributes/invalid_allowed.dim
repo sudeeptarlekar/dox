@@ -1,0 +1,7 @@
+cluster:
+  type: text
+  default: ''
+necessary:
+  type: single
+  default: red
+  allowed: red, green

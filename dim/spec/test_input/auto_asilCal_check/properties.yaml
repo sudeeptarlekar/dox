@@ -1,0 +1,7 @@
+test_module_asil:
+  asil: ASIL_A
+  reuse: yes
+
+test_module_asilCal:
+  asil: ASIL_B
+  cal: CAL_4

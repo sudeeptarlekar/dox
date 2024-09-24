@@ -1,0 +1,9 @@
+Config:
+  - originator: CompanyName
+    files:
+      - module1.dim
+    category: module
+  - originator: XY_Company
+    files:
+      - module2.dim
+    category: module

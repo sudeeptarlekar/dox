@@ -1,0 +1,12 @@
+document: source_test
+
+SOURCES_S1:
+  sources:
+
+SOURCES_S2:
+  sources: xy/z.cpp
+
+SOURCES_S3:
+  sources: >
+           abc.h,
+           xy/z.cpp

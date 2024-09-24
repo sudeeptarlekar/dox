@@ -1,0 +1,13 @@
+module: tester
+
+TESTER_R1:
+    tester:
+TESTER_R2:
+    tester:  auto  
+TESTER_R3:
+    tester: you
+TESTER_R4:
+    tester:      you,me
+TESTER_R5:
+    tester:      |
+                    :you:, me

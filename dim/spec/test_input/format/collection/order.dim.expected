@@ -1,0 +1,32 @@
+document: ordered
+
+metadata: V1
+
+REQ1:
+  type: information
+  text:                     Do it now!
+  text_french:              fr
+  text_german:              gr
+  verification_criteria:        VC
+  verification_criteria_french: vfr
+  verification_criteria_german: vgr
+  tags: memory
+  asil: ASIL_B
+  cal: QM
+  developer: you
+  tester: me
+  verification_methods: on_target
+  status: valid
+  review_status: unclear
+  comment: Oh well.
+  comment_german: cgr
+  comment_italian: igr
+  miscellaneous: MISC
+  sources: x.y
+  refs: REQ2
+
+REQ2:
+
+enclosed:
+  - order.dim
+  - order.dim.expected

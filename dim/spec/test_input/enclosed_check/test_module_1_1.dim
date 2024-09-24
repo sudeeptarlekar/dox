@@ -1,0 +1,7 @@
+module: test_module
+
+enclosed:
+  - test.txt
+
+test_id_1:
+  text: First test req

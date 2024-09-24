@@ -1,0 +1,17 @@
+document: change_request
+
+CR_R0:
+
+CR_R1:
+  change_request: CrABC
+
+CR_R2:
+  change_request: TicketID-000000000001, TicketID-000000000002, TicketID-000000000003, TicketID-000000000004,
+                  TicketID-000000000005
+
+CR_R3:
+  change_request: |
+                  :ABC:
+
+CR_R4:
+  change_request:

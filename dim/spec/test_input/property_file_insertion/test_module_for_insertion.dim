@@ -1,0 +1,21 @@
+module: test_module_for_insertion
+
+test_module_for_insertion_empty:
+
+test_module_for_insertion_not_empty:
+  asil: QM
+  text: test text
+  verification_criteria: test criteria
+  cal: CAL_4
+  feature: test_feature
+  change_request: test_CR
+  tags: swa
+  developer: test_developer
+  tester: test_tester
+  test_setups: none
+  status: invalid
+  review_status: unclear
+  comment: test_comment
+  miscellaneous: test_misc
+  sources: test_source
+  refs: test_module_for_insertion_empty

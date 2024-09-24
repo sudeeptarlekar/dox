@@ -1,0 +1,12 @@
+document: test_module_for_information
+
+test_module_for_information_empty:
+  text: type should be from property table
+
+test_module_for_information_req:
+  type: requirement
+  text: type should not be replaced from property value
+
+test_module_for_information_info:
+  type: information
+  text: type should not be replaced from property value

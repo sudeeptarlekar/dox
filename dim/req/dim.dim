@@ -1,0 +1,1046 @@
+document: Dim
+
+Dim_CLI_heading:            h1 Command Line Interface
+
+Dim_CLI_info:               h2 Information
+
+Dim_CLI_help:
+  text:                     Dim shall provide a command line switch to print the command line usage.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/options.rb
+
+Dim_CLI_license:
+  text:                     Dim shall provide a command line switch to print the license.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/options.rb
+
+Dim_CLI_version:
+  text:                     Dim shall provide a command line switch to print the version.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/ver.rb
+
+Dim_CLI_errors:             h2 Errors
+
+Dim_CLI_exit:
+  text:                     On any invalid or missing command line arguments, Dim shall print a meaningful error message
+                            and exit with exit code != 0.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/options.rb
+
+Dim_Syntax_heading:         h1 Syntax
+
+Dim_Syntax_overview:
+  type: information
+  text:                     The following chapter describes each attribute of the different file types. For a complete
+                            overview with additional information please refer to the user documentation.
+  status: valid
+
+Dim_Syntax_YAML:
+  text:                     All input files shall be in YAML format.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_Syntax_InvalidChars:
+  text:                     Invalid characters (according to YAML standard) and in addition non-breaking spaces in
+                            requirements files shall be exchanged on-the-fly during loading by a YAML compatible
+                            replacement.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_Syntax_Values:
+  text:                     All literal values (not arrays or hashes) shall be interpreted as strings even if they would
+                            be integers or booleans in standard YAML syntax, e.g. 123 shall be interpreted as "123".
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/ext/psych.rb
+
+Dim_Syntax_utf8:
+  text:                     All files shall be compatible to UTF-8.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_ReqFiles_heading:       h2 Requirements Files
+
+Dim_ReqFiles_document:
+  text:                     |
+                            A requirements file shall have a "document" name attribute.
+                            Allowed values: any non-unique, non-empty string. The same name shall be usable in different files.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_MissingDocument:
+  text:                     If the document name is missing in the requirements file, an error shall be raised.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_ReqFiles_enclosed:
+  text:                     |
+                            A requirements file shall have an optional "enclosed" attribute which specifies files which are needed for the requirements, e.g. images.
+                            Allowed values: a string or an array of strings. The strings must point to existing files and specified with relative paths without "..".
+                            Default value: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_metadata:
+  text:                     |
+                            A requirements file shall have an optional "metadata" attribute which consists of any user specific string, e.g. the origin of the requirements document, history or version.
+                            Allowed values: any string
+                            Default value: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_id:
+  text:                     |
+                            A requirements file shall have zero or more requirements objects. These objects shall have strings as ID.
+                            Allowed values for IDs: any string without the letter ","
+                            Default value for IDs: n/a, must be specified explicitly
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_regularHeading: h3 Regular Form
+
+Dim_ReqFiles_regularYaml:
+  text:                     In the regular form, the ID shall be a key of a collection of key/values pairs of strings.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_type:
+  text:                     |
+                            A requirements object shall have an optional "type" attribute.
+                            Allowed values: "requirement", "information" and "heading_0" to "heading_100"
+                            Default: "requirement"
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_text:
+  text:                     |
+                            A requirements object shall have an optional "text" attribute.
+                            Allowed values: any string
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_verificationCriteria:
+  text:                     |
+                            A requirements object shall have an optional "verification_criteria" attribute.
+                            Allowed values: any string
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_feature:
+  text:                     |
+                            A requirements object shall have an optional "feature" attribute.
+                            Allowed values: any string
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_changeRequest:
+  text:                     |
+                            A requirements object shall have an optional "change_request" attribute.
+                            Allowed values: any string
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_tags:
+  text:                     |
+                            A requirements object shall have an optional "tags" attribute.
+                            Allowed values: comma separated list of strings
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_asil:
+  text:                     |
+                            A requirements object shall have an optional "asil" attribute.
+                            Allowed values: "not_set", "QM", "QM(A)", ... , "ASIL_D(D)"
+                            Default: "not_set"
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb,
+           lib/dim/consistency.rb
+  refs: Dim_PropFiles_Property
+
+Dim_ReqFiles_calString:
+  text:                     |
+                            A requirements object shall have an optional "cal" attribute.
+                            Allowed values: "QM", "CAL_1", "CAL_2", "CAL_3", "CAL_4"
+                            Default: "not_set"
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb,
+           lib/dim/consistency.rb
+  refs: Dim_PropFiles_Property
+
+Dim_ReqFiles_developer:
+  text:                     |
+                            A requirements object shall have an optional "developer" attribute.
+                            Allowed values: any string,
+                            Default resolution:
+                            - originator from the config file, if
+                                    - type is "requirement" and
+                                    - category is neither "input" nor "unspecified"
+                            - "" otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb,
+           lib/dim/consistency.rb
+
+Dim_ReqFiles_tester:
+  text:                     |
+                            A requirements object shall have an optional "tester" attribute.
+                            Allowed values: any string
+                            Default resolution: if
+                            - originator from the config file if
+                                    - type is "requirement" and
+                                    - "process" is not in tags and
+                                    - category is neither "input" nor "unspecified"
+                            - "" otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb,
+           lib/dim/consistency.rb
+
+Dim_ReqFiles_testSetups:
+  text:                     |
+                            A requirements object shall have an optional "test_setups" attribute.
+                            Allowed values: one or more of "none", "off_target", "on_target", "manual"
+                            If test_setups is missing, it is resolved to:
+                            - "none" if
+                                    - type is not "requirement" or
+                                    - "process" is in tags or
+                                    - category is "input" or "unspecified"
+                            - "off_target" if
+                                    - category is "module" or
+                                    - tags include "tool"
+                            - "on_target" otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb,
+           lib/dim/consistency.rb
+
+Dim_ReqFiles_verificationMethods:
+  text:                     |
+                            A requirement object shall have an optional 'verification_methods' attribute.
+                            Allowed values: one or more of "none", "off_target", "on_target", "manual"
+                            If verification_methods is missing, it is resolved to:
+                            - "none" if
+                                    - type is not "requirement" or
+                                    - "process" is in tags or
+                                    - category is "input" or "unspecified"
+                            - "off_target" if
+                                    - category is "module" or
+                                    - tags include "tool"
+                            - "on_target" otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirement.rb lib/dim/loader.rb lib/dim/consistency.rb
+
+Dim_ReqFiles_verificationMethods_backward:
+  text:                     |
+                            "verification_methods" replaces "test_setups".
+                            For backward compatibility, the requirements file can include both "test_setups" and "verification_methods".
+                            During loading, Dim shall merge values from both attributes.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirement.rb lib/dim/consistency.rb lib/dim/loader.rb
+
+Dim_ReqFiles_status:
+  text:                     |
+                            A requirements object shall have an optional "status" attribute.
+                            Allowed values: one of "valid", "draft", "invalid"
+                            If status is missing, it is resolved to:
+                            - "draft" if type is "requirement" or "information"
+                            - "valid" otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb,
+           lib/dim/consistency.rb
+
+Dim_ReqFiles_reviewStatus:
+  text:                     |
+                            A requirements object shall have an optional "review_status" attribute.
+                            Allowed values: one of "accepted", "unclear", "rejected", "not_reviewed", "not_relevant"
+                            If review_status is missing, it is resolved to:
+                            - "not_reviewed" if category is "input" or "unspecified"
+                            - "accepted" otherwise
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb,
+           lib/dim/consistency.rb
+
+Dim_ReqFiles_comment:
+  text:                     |
+                            A requirements object shall have an optional "comment" attribute.
+                            Allowed values: any string
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_miscellaneous:
+  text:                     |
+                            A requirements object shall have an optional "miscellaneous" attribute.
+                            Allowed values: any string
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_sources:
+  text:                     |
+                            A requirements object shall have an optional "sources" attribute.
+                            Allowed values: comma separated string list
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_refs:
+  text:                     |
+                            A requirements object shall have an optional "refs" attribute.
+                            Allowed values: a string with comma separated IDs, which must exist.
+                            A requirement object is also allowed to have reference within
+                            different categories and circular dependency can only occur in the
+                            same category level.
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_language:
+  text:                     |
+                            A requirements object shall have an optional language attributes for "text", "verification_criteria" and "comment".
+                            The naming scheme of these attributes shall be "<key>_<language>", e.g. "text_german".
+                            Allowed values: any string
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_shortHeading:  h3 Short Form
+
+Dim_ReqFiles_shortYaml:
+  text:                     In the short form, the ID shall be the key of a key/value pair of strings.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_shortHeadingForm:
+  text:                     If a requirement object has a heading type and only text, it shall be writable in one line
+                            for convenience. The value shall include the heading level and the heading text.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ReqFiles_shortInfoForm:
+  text:                     If a requirement object has type "information" and only text, it shall be writable in one
+                            line for convenience. The value shall include the information type and the text.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirement.rb,
+           lib/dim/loader.rb
+
+Dim_ConfigFiles_heading:    h2 Config Files
+
+Dim_ConfigFiles_Config:
+  text:                     A config file shall have exactly one "Config" attribute which consists of an array of config
+                            entries.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_ConfigFiles_Files:
+  text:                     |
+                            A config entry shall have exactly one "files" entry.
+                            Allowed values: a string or an array of strings of requirements files. The files must be specified with relative paths but without "..". Ruby glob pattern are allowed, e.g. "**", "*" and "?".
+                            If a filename is specified more than once, an error shall be thrown.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_ConfigFiles_Originator:
+  text:                     |
+                            A config entry shall have exactly one "originator" entry.
+                            Allowed values: any non-empty string
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_ConfigFiles_Category:
+  text:                     |
+                            A config entry shall have exactly one "category" entry.
+                            Allowed values: one of "input", "software", "architecture", "module", "system"
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_ConfigFiles_Property:
+  text:                     |
+                            A config file shall have an optional "Property" attribute.
+                            Allowed values: a string which points to an existing properties file.
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_ConfigFiles_Attribute:
+  text:                     |
+                            A config file shall have an optional "Attributes" field.
+                            Allowed values: a string which points to an existing attribute file.
+                            Default: ""
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_ConfigFiles_disableNameCheck:
+  text:                     |
+                            A config file shall have an optional "disable_naming_convention_check" field a config entry.
+                            Allowed values: "yes" and "no"
+                            Default: "no"
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_ConfigFiles_SRS:
+  text:                     If the category for a config entry is "software" and "disable_naming_convention_check" value
+                            is not set to "yes", Dim shall check for ID naming conventions. An ID must start with "SRS_"
+                            and must be named in SRS_<feature>_<aspect> fashion including the two underscores. The
+                            document name must start with "SRS_" and must be named in SRS_<feature> fashion including
+                            the underscore. <feature> and <aspect> must be non empty strings with only alphanumeric
+                            characters along with hyphen allowed. If this naming convention is not met, Dim shall throw
+                            a meaningful error message and exit with exit code != 0.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_PropFiles_heading:      h2 Properties File
+
+Dim_PropFiles_Property:
+  text:                     |
+                            A properties file shall define default values for attributes of requirement elements which are not explicitly set.
+                            The values shall be structured in the properties file using the document name as a key, and the attributes with their respective default values, like this:
+                            "document {'status': 'valid', 'asil': 'ASIL_B', 'text': 'default text'}"
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/loader.rb,
+           lib/dim/consistency.rb
+
+Dim_AttrFiles_CmdParam:
+  text:                     Dim shall be able to accept the attributes file using a command line argument. If the config
+                            file includes the reference to custom attributes and another attributes file is loaded using
+                            command line argument, then Dim shall load the attributes from both files for processing
+                            requirements. In case these attribute files contains duplicate attributes, then attributes
+                            referenced from the config file shall be given priority.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_AttributeLoading_UnitTests:
+  text:                     When the attributes file is referenced in Config file or passed using the command line
+                            argument, Dim shall validate the configuration for custom attributes and load them for
+                            processing the requirements.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/helpers/attributes_helper.rb
+
+Dim_AttrFiles_Attribute:
+  text:                     |
+                            An attributes file shall accept custom attributes for Dim.
+                            The values shall be structured in the attributes file using the attribute name as a key, and the values for those attributes, like this:
+                            "color: {type: single, default: red, allowed: [red, green]}"
+                            type - defines the format type how the attribute is interpreted and exported to RST
+                            default - specifies the default value
+                            allowed - specifies list of allowed values
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_AttrFiles_SearchAttributeFile:
+  text:                     If a single requirements file is loaded, then Dim shall automatically search
+                            for "attributes.dim" file recursively in parent directory till root directory is reached.
+                            This does not apply if a config file is loaded instead of single requirements file.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_loading_heading:        h1 Loading Files
+
+Dim_loading_readHeading:    h2 Reading Data
+
+Dim_loading_readGood:
+  text:                     Dim shall read the files specified on command line and in the config file. The data shall be
+                            made available to subcommands.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_loading_enclosedCheck:
+  text:                     Dim shall skip the enclosed file check when "--no-check-enclosed" flag is passed.
+  tags: tool, covered, tested
+  status: valid
+  sources: /lib/dim/loader.rb
+
+Dim_loading_readBad:
+  text:                     If any error occurs during loading the config, property or requirements files, Dim shall
+                            print a meaningful error message and exit with exit code != 0. Errors can occur due to file
+                            access issues like missing files or the files have invalid syntax.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/loader.rb,
+           lib/dim/ext/psych.rb
+
+Dim_loading_checkHeading:   h2 Consistency Checks
+
+Dim_loading_checkCyclic:
+  text:                     Requirements can reference other requirements which can reference again other requirements
+                            in same category level. In case of a cyclic reference, Dim shall print a meaningful error
+                            message and exit with exit code != 0.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/consistency.rb
+
+Dim_loading_checkMissing:
+  text:                     If a reference cannot be resolved, which means the ID does not exist, Dim shall print a
+                            meaningful error message and exit with exit code != 0.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/consistency.rb
+
+Dim_loading_checkMissingDisable:
+  text:                     The command line interface of Dim shall provide an option to disable this
+                            unresolved-references-check, which means Dim shall neither complain about missing references
+                            nor exit Dim.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/consistency.rb
+
+Dim_loading_checkDocument:
+  text:                     If several files share the same document name, the originator and the category must be the
+                            same for all of these files. If not, Dim shall print a meaningful error message and exit
+                            with exit code != 0.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_loading_document:
+  text:                     Dim shall support "module" as alias for "document". If "module" is specified, "document"
+                            shall be set to the value of "module". If both are specified, an error shall be raised.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/export.rb
+
+Dim_loading_checkMetadata:
+  text:                     If several files share the same document name, "metadata" must not be defined more than
+                            once. Otherwise Dim shall print a meaningful error message and exit with exit code != 0.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_loading_checkID:
+  text:                     Requirement IDs shall be unique over all files. If the same ID is used for more than one
+                            requirement, Dim shall print a meaningful error message and exit with exit code != 0.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/ext/psych.rb
+
+Dim_subcommands_heading:    h1 Subcommands
+
+Dim_check_heading:          h2 check
+
+Dim_check_General:
+  text:                     The command line interface of Dim shall provide a "check" subcommand which loads the input
+                            files and executes consistency checks.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/commands/check.rb
+
+Dim_stats_heading:          h2 stats
+
+Dim_stats_General:
+  text:                     The command line interface of Dim shall provide a "stats" subcommand which prints basic
+                            metrics to the console. The metrics shall be printed for every loaded document and a summary
+                            over all documents.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/commands/stats.rb
+
+Dim_stats_Details:
+  text:                     |
+                            The metrics shall include at least:
+                            - Number of total elements
+                            - Number of requirements
+                            - Number of valid requirements split by review status
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/stats.rb
+
+Dim_format_heading:         h2 format
+
+Dim_format_general:
+  text:                     The command line interface of Dim shall provide a "format" subcommand which formats the
+                            loaded requirements files. Missing references are allowed by default while formatting.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/requirements.rb,
+           lib/dim/commands/format.rb
+
+Dim_format_whitespaces:
+  text:                     The formatter shall adapt the whitespaces in a predefined style.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirements.rb,
+           lib/dim/commands/format.rb
+
+Dim_format_order:
+  text:                     The formatter shall arrange the attributes in a predefined order.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirements.rb,
+           lib/dim/commands/format.rb
+
+Dim_format_form:
+  text:                     The formatter shall change requirements from regular to short form if possible.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirements.rb,
+           lib/dim/commands/format.rb
+
+Dim_format_default:
+  text:                     The formatter shall not remove any attributes, even if the default value is specified.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirements.rb,
+           lib/dim/commands/format.rb
+
+Dim_format_duplicated:
+  text:                     The formatter shall remove duplicate values in "tags", "verification_methods", "sources"
+                            and "refs".
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/format.rb
+
+Dim_format_inPlace:
+  text:                     By default, the formatter shall change the files in-place.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/requirements.rb,
+           lib/dim/commands/format.rb
+
+Dim_format_checkOnly:
+  text:                     It shall be possible to only check the formatting without changing the files. In case of
+                            incorrect formatting, an error message shall be printed and Dim shall exit with an exit
+                            code != 0. Different line endings like CRLF and LF shall be ignored.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/commands/format.rb
+
+Dim_format_extra:
+  text:                     It shall be possible to write the formatted data to extra files and not overwrite the
+                            original files. This makes it easier to use third-party compare-tools.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/commands/format.rb
+
+Dim_format_vim:
+  text:                     It shall be possible to read the input from STDIN and to print the formatted output to the
+                            STDOUT. This functionality supports auto-formatting in text editors like Vim.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/commands/format.rb
+
+Dim_format_verificationMethods:
+  text:                     The Dim formatter shall remove the "test_setups" attribute from formatted file and keep
+                            only 'verification_methods'.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/options.rb lib/dim/commands/format.rb
+
+Dim_export_heading:         h2 export
+
+Dim_export_general:
+  text:                     The command line interface of Dim shall provide an "export" subcommand which exports the
+                            requirements data to other file formats. It shall be possible to specify the output folder.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/commands/export.rb
+
+Dim_export_documents:
+  text:                     Within the output folder, a new folder for every document shall be created with a
+                            requirements file named "<document>/Requirements.<type>", e.g. "myModule/Requirements.json".
+                            The document name shall be sanitized, e.g. "/" shall be converted to "_" to avoid invalid
+                            folder names.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/export.rb
+
+Dim_export_enclosed:
+  text:                     Files specified in the enclosed attributes shall be copied to the appropriate document's
+                            output folder.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/export.rb
+
+Dim_export_filter:
+  text:                     It shall be possible to filter requirements for exports based on their attributes, e.g. that
+                            only input and software requirements are exported.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/commands/export.rb
+
+Dim_export_cleanup:
+  text:                     After exporting is complete, files from exported folder which are no longer referenced in
+                            the exported folder shall be cleaned up.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/export.rb
+
+Dim_export_verificationMethods:
+  text:                     Exported requirements file shall contain "verification_methods" and not "test_setups".
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/export.rb
+
+Dim_export_jsonHeading:     h3 JSON
+
+Dim_export_json:
+  text:                     JSON exports shall have all requirement attributes as key/value pairs plus ID, document name
+                            and originator.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/exporter/json.rb
+
+Dim_export_csvHeading:      h3 CSV
+
+Dim_export_csvSep:
+  text:                     CSV exports shall have "Sep=," in the first line to specify the separator character.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/exporter/csv.rb
+
+Dim_export_csvAttributes:
+  text:                     CSV exports shall have all requirement attributes plus ID, document name and originator in
+                            the second line. The following lines shall consist of the values of the requirements
+                            according to the attribute names defined in the second line.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/exporter/csv.rb
+
+Dim_export_csvValues:
+  text:                     All values shall be wrapped by double quotes. Double quotes in the values shall be escaped.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/exporter/csv.rb
+
+Dim_export_rstHeading:      h3 RST
+
+Dim_export_rst:
+  text:                     RST exports shall export the data according to the Sphinx dox_trace extension syntax.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/exporter/rst.rb
+
+Dim_export_rstStrings:
+  text:                     In the RST export, literals like "text" or "verification_criteria" shall be exported as
+                            Sphinx raw-html elements to avoid invalid RST files. This means special characters like "<"
+                            or "\n" must be escaped or converted. It shall be possible to mark substrings explicitly to
+                            skip this conversion.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/exporter/rst.rb
+
+Dim_export_rstChange:
+  text:                     Existing RST files shall only be overwritten if data has been changed to keep the time stamp
+                            of the files.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/exporter/rst.rb
+
+Dim_export_rstIndex:
+  text:                     Additionally to the requirements files, the RST exporter shall create index files for each
+                            originator/category pair to be directly used by Sphinx.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/commands/exporter/rst.rb
+
+Dim_format_customAttributes:
+  text:                     Before formatting requirements files with custom attributes, Dim shall load the attributes
+                            file first.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/options.rb,
+           lib/dim/loader.rb,
+           lib/dim/commands/format.rb
+
+Dim_api_heading:            h1 Ruby API
+
+Dim_api_readingHeading:     h2 Reading
+
+Dim_api_reading:
+  text:                     It shall be possible to load files by using the Dim Ruby API directly. A data structure
+                            shall be provided with resolved default values if the values are not provided explicitly in
+                            the requirements files.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_api_headingConvenience: h3 Convenience Methods for Requirements
+
+Dim_api_safetyRelevant:
+  text:                     A requirements object shall provide a method "safety_relevant?" which returns true if "asil"
+                            is not set to "QM" or "not_set", otherwise false.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirements.rb
+
+Dim_api_securityRelevant:
+  text:                     A requirements object shall provide a method "security_relevant?" which returns true
+                            if "cal" is set to "CAL_4", otherwise false.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirements.rb
+
+Dim_api_additionalGettersHeading: h3 Additional Getters
+
+Dim_api_documentName:
+  text:                     A requirement shall have a getter for the document name.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirements.rb
+
+Dim_api_originator:
+  text:                     A requirement shall have a getter for the originator. The value shall be taken from the
+                            config file. If a requirements file was loaded directly without a config file, the
+                            originator shall be "".
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirements.rb
+
+Dim_api_category:
+  text:                     A requirement shall have a getter for the category. The value shall be taken from the config
+                            file. If a requirements file was loaded directly without a config file, the category shall
+                            be "unspecified".
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirements.rb
+
+Dim_api_filename:
+  text:                     A requirement shall have a getter for the filename.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirements.rb
+
+Dim_api_lineNumber:
+  text:                     A requirement shall have a getter for the line number.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirements.rb
+
+Dim_api_backwardRefs:
+  text:                     A requirement shall have a getter for the backward references which are calculated
+                            automatically by Dim.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirements.rb
+
+Dim_api_existingRefs:
+  text:                     A requirement shall have a getter for the existing references. When loading with disabled
+                            missing-reference-check, the list can be shorter than the original list in refs attribute.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirements.rb
+  refs: Dim_loading_checkMissingDisable
+
+Dim_api_upstreamRefs:
+  text:                     A requirement shall have a getter for upstream references, which means a list of IDs from
+                            refs to higher category level plus backward-refs from higher or same category level IDs.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirement.rb lib/dim/loader.rb lib/dim/consistency.rb
+
+Dim_api_downstreamRefs:
+  text:                     A requirement shall have a getter for downstream references, which means a list of IDs from
+                            refs to lower or same category level plus backward-refs from lower category level IDs.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/requirement.rb lib/dim/loader.rb lib/dim/consistency.rb
+
+Dim_api_metadata:
+  text:                     The metadata of the documents shall be available via the API.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/loader.rb
+
+Dim_api_convenienceStringHeading: h3 Convenience Methods for Attributes With Comma Separated Values
+
+Dim_api_stringCleanSplit:
+  text:                     Dim shall extend the String class with a "cleanSplit" method which returns an array of the
+                            elements without leading and trailing whitespaces.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/ext/string.rb
+
+Dim_api_stringCleanArray:
+  text:                     Dim shall extend the String class with a "cleanArray" method which returns the same
+                            as "cleanSplit" but same as cleanSplit, but without empty elements.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/ext/string.rb
+
+Dim_api_stringCleanUniqArray:
+  text:                     Dim shall extend the String class with a "cleanUniqArray" method which returns the same
+                            as "cleanArray" but also removes duplicates.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/ext/string.rb
+
+Dim_api_stringCleanString:
+  text:                     Dim shall extend the String class with a "cleanString" method which returns a string without
+                            empty elements, leading and trailing whitespaces.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/ext/string.rb
+
+Dim_api_stringCleanUniqString:
+  text:                     Dim shall extend the String class with a "cleanUniqString" method which returns the same
+                            as "cleanString" but also removes duplicates.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/ext/string.rb
+
+Dim_api_stringAddEnum:
+  text:                     Dim shall extend the String class with an "addEnum" method which add an enum to the string,
+                            makes the enums unique and returns the result.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/ext/string.rb
+
+Dim_api_stringRemoveEnum:
+  text:                     Dim shall extend the String class with a "removeEnum" method which removes all enums from
+                            the string and returns the result.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/ext/string.rb
+
+Dim_api_writingHeading:     h2 Writing
+
+Dim_api_changing:
+  text:                     It shall be possible to change requirements files by using the Dim Ruby API directly. A data
+                            structure shall be provided without resolved default values to be able to work on the
+                            original data. It shall be possible to write the changed data back to the file system.
+  tags: tool, covered, tested
+  status: valid
+  sources: >
+           lib/dim/loader.rb,
+           lib/dim/requirements.rb,
+           lib/dim/formatter.rb
+
+Dim_testing_heading:        h1 Testing Requirements
+
+Dim_testing_output:
+  text:                     To ease testing, it shall be possible to read the command line output of Dim in unit tests
+                            when calling functions directly. This means stdout and stderr need to be redirected through
+                            string streams.
+  tags: tool, covered, tested
+  status: valid
+  sources: lib/dim/ext/output.rb

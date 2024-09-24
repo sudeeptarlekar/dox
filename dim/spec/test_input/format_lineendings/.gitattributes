@@ -1,0 +1,3 @@
+crlf.dim text eol=crlf
+lf.dim text eol=lf
+mixed.dim binary

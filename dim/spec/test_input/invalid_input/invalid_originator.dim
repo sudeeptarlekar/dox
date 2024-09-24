@@ -1,0 +1,6 @@
+Config:
+  - originator: 334
+    files:
+        - modules/test_module_1.dim
+        - modules/test_module_2.dim
+    category: module

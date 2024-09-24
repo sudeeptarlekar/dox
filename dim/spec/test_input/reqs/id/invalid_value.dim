@@ -1,0 +1,9 @@
+module: invalid_value
+Files:
+  CompanyName:
+    files:
+      - ./cli.dim
+      - ./exporter.dim
+      - ./explorer.dim
+      - ./validator.dim
+      - ./verifier.dim

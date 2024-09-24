@@ -1,0 +1,4 @@
+module: moduleA
+
+ESR-0001:
+  text: sample_text

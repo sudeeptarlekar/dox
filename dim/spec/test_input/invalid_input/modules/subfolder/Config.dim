@@ -1,0 +1,6 @@
+Config:
+  CompanyName:
+    files:
+      - ../valid_test_1.dim
+      - ../valid_test_2.dim
+    category: module

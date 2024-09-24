@@ -1,0 +1,4 @@
+module: valid_test_1
+
+ESR-0010-4139:
+  text: req1

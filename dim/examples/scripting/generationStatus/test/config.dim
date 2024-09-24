@@ -1,0 +1,7 @@
+Config:
+  - originator: Customer
+    files: CRS_*
+    category: input
+  - originator: CompanyName
+    files: SRS_*
+    category: software

@@ -1,0 +1,8 @@
+document: SRS_General
+
+SRS_General_1111:
+  text:                     The Architecture shall be very good.
+
+SRS_General_1112:
+  text:                     SafeRTE shall be also very good.
+  refs: SRS_SafeRTE_0005

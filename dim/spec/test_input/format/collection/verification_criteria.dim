@@ -1,0 +1,10 @@
+module: verification_test
+
+VC_R0:
+    verification_criteria:
+
+VC_R1:
+    verification_criteria: |
+                   First test.
+VC_R2:
+    verification_criteria: x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x y

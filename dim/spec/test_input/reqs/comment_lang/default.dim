@@ -1,0 +1,7 @@
+module: Name1
+
+ID_default1:
+    comment_german:
+    comment_french: bla
+
+ID_default2:

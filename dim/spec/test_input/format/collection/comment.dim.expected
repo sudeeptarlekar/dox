@@ -1,0 +1,17 @@
+document: comment
+
+COMMENT_R0:
+
+COMMENT_R1:
+  comment: First test.
+
+COMMENT_R2:
+  comment: x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+           y
+
+COMMENT_R3:
+  comment: |
+           :unit: 123.
+
+COMMENT_R4:
+  comment:

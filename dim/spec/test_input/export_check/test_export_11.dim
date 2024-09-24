@@ -1,0 +1,10 @@
+module: mod11
+
+Test_Export_11:
+    test_setups: off_target
+    developer: |
+               A
+               B
+    tester: |
+            C
+            D

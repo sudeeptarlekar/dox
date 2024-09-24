@@ -1,0 +1,3 @@
+module: enclosed
+
+enclosed: .\data\a.txt

@@ -1,0 +1,7 @@
+module: esr_module
+
+SMD_requirement1:
+  text: sample text
+
+SMD_requirement2:
+  text: sample text

@@ -1,0 +1,15 @@
+SRS_Requirement1_Full:    { asil: ASIL_A, content: "Single line" }
+SRS_Requirement1:         { asil: ASIL_B } # ignored
+
+SRS_Requirement2:         { asil: ASIL_C, content: "Multi\n\n- line1\n- **line2**" }
+
+SRS_Requirement3_Default: {}
+
+SMD_Custom_Prop:          { asil: ASIL_D }
+
+SWA:                      { developer: Abc AG }
+
+SWA_Custom_True:          { tags: true }
+SWA_Custom_False:         { tags: [false] }
+
+_default_:                { asil: QM, content: "Todo" }

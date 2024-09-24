@@ -1,0 +1,9 @@
+module: SRS_esr
+
+SRS_requirement_1:
+  text: sample text
+  refs: SWA_requirement1
+
+SRS_requirement_2:
+  text: sample text
+  refs: SRS_requirement_1

@@ -1,0 +1,7 @@
+security:
+  type: single
+  default: 'not_set'
+  allowed:
+    - yes
+    - no
+    - not_set

@@ -1,0 +1,17 @@
+document: feature
+
+FEATURE_R0:
+
+FEATURE_R1:
+  feature: FeatureABC
+
+FEATURE_R2:
+  feature: TicketID-000000000001, TicketID-000000000002, TicketID-000000000003, TicketID-000000000004,
+           TicketID-000000000005
+
+FEATURE_R3:
+  feature: |
+           :ABC:
+
+FEATURE_R4:
+  feature:

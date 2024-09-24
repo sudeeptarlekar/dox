@@ -1,0 +1,12 @@
+module: Name1
+
+ID_singleLine:
+    text: Single line
+
+ID_multiLine:
+    text: |
+          Multi
+          line
+
+ID_empty:
+    text:

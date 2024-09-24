@@ -1,0 +1,5 @@
+module: X-é.test*()srs=
+
+test_srs_1:
+  text: Some req
+  sources: a/b.c

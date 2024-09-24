@@ -1,0 +1,10 @@
+cluster:
+  type: multiple
+  default: ''
+necessary:
+  type: single
+  default: ''
+  allowed:
+    -
+    - true
+    - false

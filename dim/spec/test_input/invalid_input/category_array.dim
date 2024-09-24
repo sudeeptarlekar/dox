@@ -1,0 +1,6 @@
+Config:
+  - originator: CompanyName
+    files: abc
+    category:
+        - module
+        - system

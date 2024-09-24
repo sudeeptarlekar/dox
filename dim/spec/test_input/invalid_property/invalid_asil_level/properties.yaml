@@ -1,0 +1,7 @@
+test_module_2:
+  asil: QM
+  reuse: yes
+
+test_module_3:
+  asil: ASIL_Y
+  reuse: yes

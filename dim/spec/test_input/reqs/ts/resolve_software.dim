@@ -1,0 +1,15 @@
+module: test3
+
+software_r:
+  type: requirement
+
+software_i:
+  type: information
+
+software_p:
+  type: requirement
+  tags: process
+
+software_t:
+  type: requirement
+  tags: tool

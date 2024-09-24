@@ -1,0 +1,15 @@
+module: vc_lang
+
+ESR_Test_1:
+    verification_criteria: |
+          juhu
+          juhu
+    verification_criteria_spanish: ole
+
+ESR_Test_2:
+    verification_criteria: mist
+    verification_criteria_english: damn
+
+ESR_Test_3:
+    verification_criteria: achso
+    verification_criteria_french:

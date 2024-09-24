@@ -1,0 +1,4 @@
+Config:
+  - originator: CompanyName
+    files: "**/Input*.yml"
+    category: module

@@ -1,0 +1,21 @@
+module: CRS1
+
+CRS1_0:                     h1 If you see this, merge script is broken
+
+CRS1_1:
+  text:                     If you see this, merge script is broken.
+  tags: srs
+  review_status: accepted
+  refs: SRS1_1
+
+CRS1_2:
+  text:                     review_status must be "accepted".
+  tags: srs
+  review_status: accepted
+
+CRS1_3:
+  text:                     review_status must not be added.
+  tags: srs
+
+CRS1_4:
+  text:                     If you see this, merge script is broken.

@@ -1,0 +1,16 @@
+module: Name1
+
+id_accepted:
+  review_status: accepted 
+
+id_rejected:
+  review_status: rejected 
+
+id_unclear:
+  review_status: unclear
+
+id_not_reviewed:
+  review_status: not_reviewed
+
+id_not_relevant:
+  review_status: not_relevant

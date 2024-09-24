@@ -1,0 +1,7 @@
+module: Name1
+
+ID_default1:
+    text_german:
+    text_french: bla
+
+ID_default2:

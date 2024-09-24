@@ -1,0 +1,25 @@
+module: spaces_html
+
+Spaces_NoHtml_1:
+  text: " x x "
+
+Spaces_NoHtml_2:
+  text: "  x  x  "
+
+Spaces_NoHtml_3:
+  text: "   x   x   "
+
+Spaces_Html_1:
+  text: <html> x x </html>
+
+Spaces_Html_2:
+  text: <html>  x  x  </html>
+
+Spaces_Html_3:
+  text: <html>   x   x   </html>
+
+Tabs_NoHtml:
+  text: "		x		x		"
+
+Tabs_Html:
+  text: "<html>		x		x		</html>"

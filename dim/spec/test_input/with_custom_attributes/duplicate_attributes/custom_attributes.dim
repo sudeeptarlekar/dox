@@ -1,0 +1,15 @@
+color:
+  type: multi
+  default: green
+  allowed:
+    - green
+    - red
+    - blue
+    - yellow
+necessary:
+  type: single
+  default: red
+  allowed:
+    - red
+    - green
+    - blue

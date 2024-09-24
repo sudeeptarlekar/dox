@@ -1,0 +1,68 @@
+module: ok
+
+ID_1:
+    text: nothing
+
+ID_2b:
+    tags: memory
+
+ID_2c:
+    tags: memory, functional_safety_mechanism
+
+ID_2d:
+    asil: QM
+
+ID_2e_safe:
+    asil: ASIL_A
+
+ID_2f_safe:
+    asil: ASIL_A
+    tags: memory
+
+ID_2g_safe:
+    asil: ASIL_A
+    tags: functional_safety_mechanism
+
+ID_2h:
+    asil: QM
+    tags: functional_safety_mechanism
+
+ID_2i:
+    asil: QM
+    tags: memory
+
+ID_2j:
+    asil: not_set
+
+ID_3a_cal:
+    cal: CAL_4
+
+ID_3b:
+    tags: memory
+
+ID_3c:
+    tags: memory, cybersecurity_control
+
+ID_3d:
+    tags: confidentiality
+
+ID_3e:
+    tags: integrity
+
+ID_3f:
+    tags: availability
+
+ID_3g:
+    tags: authenticity
+
+ID_3h:
+    tags: authority
+
+ID_3i:
+    cal: QM
+
+ID_3j:
+    cal: not_set
+
+ID_4:
+    tags: authority, functional_safety_mechanism

@@ -1,0 +1,11 @@
+module: test_module_asilCal
+
+test_id_asilCalNotSet:
+  asil: not_set
+  cal: not_set
+
+test_id_asilCalNone:
+
+test_id_asilCalSet:
+  asil: ASIL_D
+  cal: QM

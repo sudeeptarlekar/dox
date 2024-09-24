@@ -1,0 +1,4 @@
+Config:
+  - originator: CompanyName
+    files: default.dim
+    category: module

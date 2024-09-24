@@ -1,0 +1,7 @@
+Config:
+    - files: dim.dim
+      originator: Accenture
+      disable_naming_convention_check: yes
+      category: software
+
+Properties: properties.yaml

@@ -1,0 +1,6 @@
+Config:
+    - originator: bla
+      files:
+            yeah: aa
+            super: bb
+      category: module

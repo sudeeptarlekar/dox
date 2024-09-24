@@ -1,0 +1,12 @@
+module: Name1
+
+id_v1:
+    developer: Hallo 
+
+id_v2:
+    developer:
+
+id_v3:
+    developer: |
+               A
+               B

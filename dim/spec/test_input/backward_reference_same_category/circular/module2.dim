@@ -1,0 +1,5 @@
+module: SRS_esr
+
+SRS_req_2:
+  text: sample text
+  refs: SRS_req_3

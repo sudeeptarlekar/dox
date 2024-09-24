@@ -1,0 +1,7 @@
+module: test2
+
+module_r:
+  type: requirement
+
+module_i:
+  type: information

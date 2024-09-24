@@ -1,0 +1,8 @@
+Config:
+  - originator: ABC
+    files: modules/valid_test_1.dim
+    category: system
+  - originator: ABC
+    files: modules/valid_test_2.dim
+    disable_naming_convention_check: yes
+    category: software

@@ -1,0 +1,17 @@
+document: developer
+
+Dev_R1:
+  developer:
+
+Dev_R2:
+  developer: Lorem Ipsum
+
+Dev_R3:
+  developer: you
+
+Dev_R4:
+  developer: you, me
+
+Dev_R5:
+  developer: |
+             [you], me

@@ -1,0 +1,5 @@
+module: test_module
+
+test_id_1:
+  text: First test requirement
+  test: Invalid key

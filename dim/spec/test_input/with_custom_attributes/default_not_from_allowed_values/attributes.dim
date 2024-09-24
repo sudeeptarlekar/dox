@@ -1,0 +1,10 @@
+cluster:
+  type: text
+  default: ''
+necessary:
+  type: single
+  default: unclear
+  allowed:
+    -
+    - true
+    - false

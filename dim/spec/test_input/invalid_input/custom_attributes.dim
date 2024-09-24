@@ -1,0 +1,7 @@
+Config:
+  - originator: CompanyName
+    files:
+      - test_module.dim
+    category: module
+Attributes:
+  - attributes.dim

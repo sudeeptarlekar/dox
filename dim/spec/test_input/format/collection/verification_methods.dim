@@ -1,0 +1,11 @@
+module: verification_methods
+
+VM_R1:
+VM_R2:
+VM_R3:
+    verification_methods:    off_target,off_target
+VM_R4:
+    verification_methods: off_target
+VM_R5:
+    verification_methods:      |
+                        off_target,off_target,on_target,on_target

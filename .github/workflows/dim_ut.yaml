@@ -1,0 +1,37 @@
+name: Dim Unit Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu]
+        ruby: [2.7, 3.0, 3.3]
+        include:
+          - os: macos
+            ruby: 3.3
+          - os: windows
+            ruby: 3.3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Install gems
+        run: |
+             gem install rspec -v 3.10.0 --no-document
+      - name: Install coverage
+        if: ${{matrix.os == 'ubuntu' && matrix.ruby == '3.3'}}
+        run: |
+             gem install simplecov -v 0.22.0 --no-document
+      - name: Run unit tests
+        working-directory: dim
+        run: |
+             rake test:spec

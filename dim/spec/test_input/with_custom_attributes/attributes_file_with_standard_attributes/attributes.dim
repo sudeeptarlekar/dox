@@ -1,0 +1,14 @@
+cluster:
+  type: text
+  default: ''
+necessary:
+  type: single
+  default: ''
+  allowed:
+    -
+    - true
+    - false
+type:
+  type: text
+  default: ''
+

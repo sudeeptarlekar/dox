@@ -1,0 +1,15 @@
+module: test1
+
+input_r:
+  type: requirement
+
+input_i:
+  type: information
+
+input_p:
+  type: requirement
+  tags: progress
+
+input_t:
+  type: requirement
+  tags: tool

@@ -1,0 +1,4 @@
+module: metadata
+metadata:
+    - abc
+    - def

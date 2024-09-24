@@ -1,0 +1,4 @@
+Config:
+  - originator: CompanyName
+    files: ./test*.dim
+    category: module

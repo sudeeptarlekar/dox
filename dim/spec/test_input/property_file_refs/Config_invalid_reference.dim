@@ -1,0 +1,7 @@
+Config:
+  - originator:
+    files:
+      - ref_test_module*.dim
+    category: "input"
+
+Properties: "properties_invalid_ref.yaml"

@@ -1,0 +1,20 @@
+Config:
+  - originator: ESR Software
+    files: srs/module.dim
+    category: software
+
+  - originator: ESR Architecture
+    files: swa/module.dim
+    category: architecture
+
+  - originator: ESR Module
+    files: smd/module.dim
+    category: module
+
+  - originator: ESR Input
+    files: input/module.dim
+    category: input
+
+  - originator: ESR System
+    files: sys/module.dim
+    category: system

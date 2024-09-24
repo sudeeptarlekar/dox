@@ -1,0 +1,9 @@
+module: test
+
+test_id_1:
+  comment_german:
+    - ./cli.dim
+    - ./exporter.dim
+    - ./explorer.dim
+    - ./validator.dim
+    - ./verifier.dim

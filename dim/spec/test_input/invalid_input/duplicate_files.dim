@@ -1,0 +1,6 @@
+Config:
+  - originator: CompanyName
+    files:
+      - modules/duplicate_module.dim
+      - modules/duplicate_module.dim
+    category: module

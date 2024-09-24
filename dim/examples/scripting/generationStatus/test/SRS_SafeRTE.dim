@@ -1,0 +1,70 @@
+document: SRS_SafeRTE
+
+SRS_SafeRTE_0017:           h1 General
+
+SRS_SafeRTE_0000:
+  text:                     |
+                            The SafeRTE shall work.
+                            Really.
+  tags: confidentiality, configuration
+  developer: CompanyName
+  tester: other
+  refs: >
+        SRS_SafeRTE_0005,
+        SRS_SafeRTE_0001
+
+SRS_SafeRTE_0018:           h1 Details
+
+SRS_SafeRTE_0019:           h2 Init
+
+SRS_SafeRTE_0001:
+  text:                     |
+                            You have to follow:
+                            <html><img src="images/test.jpeg" width="300px"/></html>
+                            And that's<html><br></html>it!
+                            <html>
+                              <table>
+                                <tr>
+                                  <th>Firstname</th>
+                                  <th>Lastname</th>
+                                  <th>Age</th>
+                                </tr>
+                                <tr>
+                                  <td>John</td>
+                                  <td>Smith</td>
+                                  <td>40</td>
+                                </tr>
+                                <tr>
+                                  <td>Jane</td>
+                                  <td>Doe</td>
+                                  <td>30</td>
+                                </tr>
+                              </table>
+                            </html>
+  refs: SRS_SafeRTE_0005
+
+SRS_SafeRTE_0005:
+  text:                     All assembly connections shall be uni-directional.
+  verification_criteria:        Take A and check B and see C.
+  tags: covered
+  verification_methods: none
+  review_status: accepted
+  comment: I like this requirement, can be implemented.
+
+SRS_SafeRTE_0020:           h3 Run
+
+SRS_SafeRTE_0021:           h3 Away
+
+SRS_SafeRTE_0733:
+  text:                     The ECU shall not run away.
+  verification_criteria:
+  tags:
+  asil: ASIL_D
+  developer: CompanyName
+  tester: CompanyName
+  verification_methods: off_target
+  status: valid
+  review_status: not_reviewed
+  refs:
+
+enclosed: images/*.jpeg

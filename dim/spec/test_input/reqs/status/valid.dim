@@ -1,0 +1,10 @@
+module: Name1
+
+id_draft:
+  status: draft 
+
+id_valid:
+  status: valid 
+
+id_invalid:
+  status: invalid

@@ -1,0 +1,7 @@
+module: esr_input
+
+IN_requirement1:
+  text: sample text
+
+IN_requirement2:
+  text: sample text

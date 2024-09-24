@@ -1,0 +1,7 @@
+Config:
+  - originator:
+    files:
+      - test_module_*.dim
+    category: "input"
+
+Properties: "properties.yaml"

@@ -1,0 +1,8 @@
+module: test_module_text_insertion
+
+test_module_text_insertion_text:
+  text: test text
+  verification_criteria: test criteria
+
+test_module_text_insertion_no_text:
+  asil: ASIL_C

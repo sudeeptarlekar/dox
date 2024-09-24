@@ -1,0 +1,36 @@
+test_module_for_insertion:
+  asil: ASIL_B
+  text: inserted text from properties file
+  verification_criteria: inserted verification criteria
+  cal: QM
+  feature: inserted_feature
+  change_request: inserted_CR
+  tags: legal, sys
+  developer: inserted developer
+  tester: inserted tester
+  test_setups: manual
+  status: valid
+  review_status: rejected
+  comment: inserted comment
+  miscellaneous: inserted miscellaneous
+  sources: inserted sources
+  refs: test_module_no_insertion_empty
+
+test_module_text_insertion:
+  text: |
+        multi,
+        line test
+        text from property
+        file!
+  verification_criteria: inserted verification criteria
+
+test_module_no_insertion:
+  type: information
+  reuse: yes
+
+test_module_for_requirement:
+  type: information
+  reuse: yes
+
+test_module_for_information:
+  type: requirement

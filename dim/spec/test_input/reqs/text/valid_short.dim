@@ -1,0 +1,8 @@
+module: test_module_1
+
+test_id_h0: h0   H0
+test_id_h1: h1 H1
+test_id_h100: h100 H100
+test_id_info:   |
+                info Short
+                information

@@ -1,0 +1,7 @@
+module: Name1
+
+id_v1:
+    sources: a.cpp
+
+id_v2:
+    sources: a.cpp   ,b.cpp

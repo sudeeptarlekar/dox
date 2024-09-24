@@ -1,0 +1,24 @@
+document: cal_test
+
+CAL_R1:
+  cal: CAL_1
+
+CAL_R2:
+  cal: CAL_2
+
+CAL_R3:
+  cal: CAL_3
+
+CAL_R4:
+  cal: CAL_4
+
+CAL_R5:
+  cal: QM
+
+CAL_R6:
+  cal: not_set
+
+CAL_R7:
+  cal: not_set
+
+CAL_R8:

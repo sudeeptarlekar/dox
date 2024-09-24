@@ -1,0 +1,8 @@
+module: review
+
+RS_R1:
+
+RS_R2:
+    review_status:       accepted
+RS_R3:
+    review_status:       not_reviewed

@@ -1,0 +1,16 @@
+module: Name1
+
+id_r:
+    type: requirement
+
+id_i:
+    type: information
+
+id_h0:
+    type: heading_0
+
+id_h1:
+    type: heading_1
+
+id_h100:
+    type: heading_100

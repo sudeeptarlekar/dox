@@ -1,0 +1,14 @@
+module: comment_lang
+ESR_Test_1:
+    comment: |
+          juhu
+          juhu
+    comment_spanish: ole
+
+ESR_Test_2:
+    comment: mist
+    comment_english: damn
+
+ESR_Test_3:
+    comment: achso
+    comment_french:

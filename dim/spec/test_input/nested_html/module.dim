@@ -1,0 +1,25 @@
+module: nested_html
+
+No_Html:
+  text: "'x'<b>A</b>'x'<b>B</b>'x'"
+
+Not_Nested:
+  text: "'x'<html><b>A</b></html>'x'<html><b>B</b></html>'x'"
+
+Nested:
+  text: "'x'<html><html><b>A</b></html>'x'<html><b>B</b></html></html>'x'"
+
+Nested_Twice:
+  text: "'x'<html><html><html><b>A</b></html>'x'<html><b>B</b></html></html></html>'x'"
+
+Twice_Once:
+  text: "'x'<html><html><b>A</b></html></html>'x'<html><b>B</b></html>'x'"
+
+Once_Twice:
+  text: "'x'<html  ><b>A</b>< /  html>'x'<html><html><b>B</b></html></html>'x'"
+
+Nested_Twice_no_end:
+  text: "'x'<html><html><html><b>A</b></html>'x'<html><b>B</b></html></html>'x'"
+
+Nested_Twice_no_start:
+  text: "'x'<html><html><b>A</b></html>'x'<html><b>B</b></html></html></html>'x'"

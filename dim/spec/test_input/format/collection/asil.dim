@@ -1,0 +1,10 @@
+module: abc
+
+ASIL_not_set:
+    asil: not_set
+
+ASIL_QM:
+    asil: QM
+
+ASIL_B_D:
+    asil: ASIL_B(D)

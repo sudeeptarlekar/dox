@@ -1,0 +1,4 @@
+module: SRS_moduleA
+
+ESR-0001:
+  text: sample text

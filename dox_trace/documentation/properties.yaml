@@ -1,0 +1,7 @@
+_default_:   { key3: value3 }
+SMD_cpp2can: { asil: QM, cal: CAL_1 }
+SWA:         { developer: MyCompany }
+
+ID1:
+    key1: value1
+    key2: value2

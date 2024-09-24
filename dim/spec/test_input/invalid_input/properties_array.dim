@@ -1,0 +1,6 @@
+Config:
+  - originator: CompanyName
+    files: abc
+Properties:
+    - a
+    - b

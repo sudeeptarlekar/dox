@@ -1,0 +1,39 @@
+document: status_test
+
+STATUS_R1:
+  status: valid
+
+STATUS_R2:
+  status: draft
+
+STATUS_R3:
+
+STATUS_R4:
+
+STATUS_H1:
+  type: heading_1
+  status: valid
+
+STATUS_H2:
+  type: heading_1
+  status: draft
+
+STATUS_H3:
+  type: heading_1
+
+STATUS_H4:
+  type: heading_1
+
+STATUS_I1:
+  type: information
+  status: valid
+
+STATUS_I2:
+  type: information
+  status: draft
+
+STATUS_I3:
+  type: information
+
+STATUS_I4:
+  type: information

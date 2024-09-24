@@ -1,0 +1,41 @@
+module: test_module_1
+
+test_id_1:
+  text: First Test Requirement
+  status: invalid
+
+test_id_2:
+  text: Second Test Requirement
+  review_status: accepted
+  tags: covered
+
+test_id_3:
+  text: Third Test Requirement
+  review_status: unclear
+
+test_id_4:
+  text: Fourth Test Requirement
+  review_status: rejected
+
+test_id_5:
+  text: Fifth Test Requirement
+  review_status: not_reviewed
+
+test_id_6:
+  text: Sixth Test Requirement
+  review_status: accepted
+  tags: covered
+
+test_id_7:
+  text: Seventh Test Requirement
+  review_status: accepted
+  tags: covered
+
+test_id_8:
+  text: Eighth Test Requirement
+  review_status: accepted
+  tags: covered
+
+test_id_9:
+  text: Ninth Test Requirement
+  review_status: accepted

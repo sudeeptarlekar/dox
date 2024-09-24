@@ -1,0 +1,6 @@
+Config:
+  - originator: CompanyName
+    files:
+      - test_module_1.dim
+      - test_module_2.dim
+    category: "module"

@@ -1,0 +1,6 @@
+module: ABC
+
+metadata: Test Meta
+
+SRS_X_Y:
+    text: bla

@@ -1,0 +1,8 @@
+Config:
+  - originator: CompanyName
+    files: 
+      - index.dim
+      - module1.dim
+      - module2.dim
+    category: software
+    disable_naming_convention_check: yes

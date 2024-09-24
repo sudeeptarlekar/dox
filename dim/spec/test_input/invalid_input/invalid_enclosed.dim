@@ -1,0 +1,6 @@
+module: invalid_enclosed
+
+enclosed:
+  - /module/valid_test_1.dim
+
+ESR_Test_1:

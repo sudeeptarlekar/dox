@@ -1,0 +1,9 @@
+module: test_module_no_insertion
+
+test_module_no_insertion_empty:
+  type: requirement
+
+test_module_no_insertion_empty_text:
+  type: requirement
+  text:
+  verification_criteria:

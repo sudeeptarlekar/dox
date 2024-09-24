@@ -1,0 +1,12 @@
+document: references
+
+REFS_R1:
+  refs:
+
+REFS_R2:
+  refs: REFS_R1
+
+REFS_R3:
+  refs: >
+        REFS_R1,
+        REFS_R2

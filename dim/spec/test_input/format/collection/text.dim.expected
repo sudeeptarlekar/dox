@@ -1,0 +1,136 @@
+document: text_test
+
+TEXT_R0:
+  text:
+
+TEXT_R1a:
+  text:                     x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x y
+
+TEXT_R1b:
+  text:                     x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x y
+                            z
+
+TEXT_R1c:
+  text:                     Xx x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x y
+
+TEXT_R1d:
+  text:                     Xx x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x y
+                            z
+
+TEXT_R1e:
+  text:                     x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            x x x x x x x x x x x x
+
+TEXT_R1f:
+  text:                     x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            x x x x x x x x x x x x x x x x x x x x x x
+
+TEXT_R1g:
+  text:                     |
+                            x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+                            y
+
+TEXT_R1h:
+  text:                     |
+                            This
+                            is
+                            fine
+
+TEXT_R1i:
+  text:                     |
+                            This:
+                              - is
+                              - fine
+
+TEXT_R2a:
+  text:
+
+TEXT_R2b:
+  text:
+
+TEXT_R2c:
+  text:
+
+TEXT_R2e:
+  text:                     abc  def
+
+TEXT_R2e2:
+  text:                     abc                                                                                      def
+
+TEXT_R2e3:
+  text:                     >
+                            abc                                                                                      
+                            def
+
+TEXT_R2f:
+  text:                     |
+                            abc 
+                             def
+
+TEXT_R3a:
+  text:                     |
+                            #abc
+
+TEXT_R3b:
+  text:                     |
+                            [abc
+
+TEXT_R4a:
+  text:                     abc:def
+
+TEXT_R4b:
+  text:                     |
+                            abc: def
+
+TEXT_R4c:
+  text:                     abc :def
+
+TEXT_R4d:
+  text:                     |
+                            abc:
+
+TEXT_R4e:
+  text:                     >
+                            abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc
+                            abc abc abc:
+
+TEXT_R4f:
+  text:                     >
+                            'abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc
+                            abc abc abc:
+
+TEXT_R4g:
+  text:                     >
+                            'abc' abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc abc
+                            abc abc abc abc:
+
+TEXT_R5a:
+  text:                     abc#def
+
+TEXT_R5b:
+  text:                     abc# def
+
+TEXT_R5c:
+  text:                     |
+                            abc #def
+
+TEXT_R5d:
+  text:                     abc#
+
+TEXT_R6a:
+  text:                     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+TEXT_R6b:
+  text:                     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaa
+
+TEXT_R7:
+  text:                     true

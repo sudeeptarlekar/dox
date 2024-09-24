@@ -1,0 +1,6 @@
+module: test_module_2
+
+test_id_2:
+  text: Another test req
+  developer: xy_company
+  asil: ASIL_A

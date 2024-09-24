@@ -1,0 +1,7 @@
+module: enclosed
+
+enclosed:
+    - data/b.txt
+    - data/c.txt
+
+ID_Array:

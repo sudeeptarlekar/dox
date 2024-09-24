@@ -1,0 +1,5 @@
+module: test_module_1
+
+test_id_3:
+  text: Another test req
+  refs: non_exist

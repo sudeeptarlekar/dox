@@ -1,0 +1,7 @@
+Config:
+  - originator: Customer
+    files: default_input.dim
+    category: input
+  - originator: CompanyName
+    files: default_module.dim
+    category: module

@@ -1,0 +1,50 @@
+name: dox_trace Unit Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu]
+        python: [3.9, 3.11, 3.12]
+        include:
+          - os: macos
+            python: "3.10"
+          - os: windows
+            python: 3.12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+      - name: Install gems
+        run: |
+             gem install rspec -v 3.10.0 --no-document
+      - name: Install packages
+        working-directory: documentation
+        run: |
+             pip install -r requirements.txt
+      - name: Install coverage
+        if: ${{matrix.os == 'ubuntu' && matrix.python == '3.12'}}
+        run: |
+             pip install coverage==7.6.1
+      - name: Run unit tests
+        if: ${{matrix.os != 'ubuntu' || matrix.python != '3.12'}}
+        working-directory: dox_trace
+        run: |
+             rake test:spec
+      - name: Run unit tests with coverage
+        if: ${{matrix.os == 'ubuntu' && matrix.python == '3.12'}}
+        working-directory: dox_trace
+        run: |
+             rake test:coverage

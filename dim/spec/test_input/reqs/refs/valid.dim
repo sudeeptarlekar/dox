@@ -1,0 +1,9 @@
+module: Name1
+
+id_v1:
+    refs: id_v3
+
+id_v2:
+    refs: id_v3   ,id_v1
+
+id_v3:

@@ -1,0 +1,10 @@
+Config:
+    - originator: Abc AG
+      files: "srs/**/*.dim"
+      category: software
+    - originator: Abc AG
+      files: "swa/**/*.dim"
+      category: architecture
+    - originator: Abc AG
+      files: "smd/**/*.dim"
+      category: module

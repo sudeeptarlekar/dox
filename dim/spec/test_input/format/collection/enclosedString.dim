@@ -1,0 +1,4 @@
+  module: enclosed_string
+
+  enclosed:
+    enclosedString.dim

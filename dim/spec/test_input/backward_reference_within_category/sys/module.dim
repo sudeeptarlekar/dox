@@ -1,0 +1,8 @@
+module: esr_sys
+
+SYS_requirement1:
+  text: sample text
+  refs: SRS_requirement_1
+
+SYS_requirement2:
+  text: sample text

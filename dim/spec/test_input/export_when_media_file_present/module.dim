@@ -1,0 +1,7 @@
+module: export_test
+
+enclosed:
+  - sample.txt
+
+test_id_1:
+  text: shall not copy the enclosed file

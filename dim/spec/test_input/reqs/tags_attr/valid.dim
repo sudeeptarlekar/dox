@@ -1,0 +1,9 @@
+module: Name1
+
+id_v1:
+    tags: memory 
+
+id_v2:
+    tags: functional_safety_mechanism, cybersecurity_control, confidentiality, integrity, availability, authenticity, authority,
+          covered, tested, legal, performance, memory, structural, configuration, calibration, established, sys, srs, swa, smd, process, test,
+          obd, emission_doc, emission_tailpipe, emission_performance, unit, interface, tool, non_functional

@@ -1,0 +1,9 @@
+module: test/module
+
+test_id_1:
+  type: heading_1
+  text: test
+
+test_id_2:
+  text: great again.
+  refs: test_id_3

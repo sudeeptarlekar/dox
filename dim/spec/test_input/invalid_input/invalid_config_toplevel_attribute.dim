@@ -1,0 +1,7 @@
+Config:
+  CompanyName:
+    files:
+      - modules/duplicate_module.dim
+    category: module
+
+Test:

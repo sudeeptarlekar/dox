@@ -1,0 +1,9 @@
+module: test_module_1
+
+test_id_1:
+  text: First test requirement
+  refs: test_id_2
+
+test_id_2:
+  text: Second test requirement
+  refs: test_id_1

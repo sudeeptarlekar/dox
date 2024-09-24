@@ -1,0 +1,4 @@
+module: Name1
+
+id_duplicate:
+    tags: memory, covered, memory 

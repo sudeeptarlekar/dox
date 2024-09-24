@@ -1,0 +1,17 @@
+Config:
+  - originator: CompanyName
+    files:
+      - test_srs_1.dim
+    category: "software"
+    disable_naming_convention_check: yes
+  - originator: CompanyName
+    files:
+      - test_module_1.dim
+      - test_module_3.dim
+      - test_module_4.dim
+      - test_module_5.dim
+      - test_export*.dim
+    category: "module"
+  - originator: XY_Company
+    files: test_module_2.dim
+    category: module

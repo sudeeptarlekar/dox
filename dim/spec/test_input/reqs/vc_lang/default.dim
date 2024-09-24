@@ -1,0 +1,7 @@
+module: Name1
+
+ID_default1:
+    verification_criteria_german:
+    verification_criteria_french: bla
+
+ID_default2:

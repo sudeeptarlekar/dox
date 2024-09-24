@@ -1,0 +1,15 @@
+module: test_lang
+
+ESR_Test_1:
+    text: |
+          juhu
+          juhu
+    text_spanish: ole
+
+ESR_Test_2:
+    text: mist
+    text_english: damn
+
+ESR_Test_3:
+    text: achso
+    text_french:

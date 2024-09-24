@@ -1,0 +1,27 @@
+document: LH_SafeRTE
+
+Customer_0:                 info This information is useless.
+
+Customer_1:
+  text:                     Implement SafeRTE.
+  review_status: rejected
+
+Customer_2:
+  text:                     Implement tests for SafeRTE
+  refs: >
+        SRS_SafeRTE_0005,
+        SRS_SafeRTE_0733
+
+CollectRefs:
+  text:                     Collect all refs and calculate implementation status.
+  refs: >
+        CollectRefsSub1,
+        CollectRefsSub2
+
+CollectRefsSub1:
+  text:                     Sub1
+  tags: covered
+
+CollectRefsSub2:
+  text:                     Sub2
+  tags: covered

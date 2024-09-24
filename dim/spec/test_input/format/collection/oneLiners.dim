@@ -1,0 +1,27 @@
+module: one_liners
+
+REQ_0a: info In total 150 chars in one-liner......................................................................................
+REQ_0b:
+    type: information
+    text: In total 150 chars in one-liner......................................................................................
+    tags:
+    comment:
+
+REQ_0c: info In total 151 chars in one-liner.......................................................................................
+REQ_0d:
+    type: information
+    text: In total 150 chars in one-liner......................................................................................
+
+REQ_1a:   |
+          info
+          Single Line Stripped
+
+REQ_1b: |
+        info
+        Multi Line:
+        - bla
+        - fasel
+
+REQ_2a:
+    type: heading_0
+    text: MyHeading 

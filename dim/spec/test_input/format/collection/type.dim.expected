@@ -1,0 +1,10 @@
+document: type_test
+
+TYPE_R1:
+  type: heading_1
+
+TYPE_R2:
+  type: heading_20
+
+TYPE_R3:
+  type: requirement

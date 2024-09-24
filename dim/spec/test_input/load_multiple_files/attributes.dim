@@ -1,0 +1,10 @@
+cluster:
+  format_style: text
+  default: ''
+necessary:
+  format_style: single
+  default: ''
+  allowed:
+    -
+    - true
+    - false

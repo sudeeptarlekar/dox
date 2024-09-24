@@ -1,0 +1,7 @@
+Config:
+  - originator: CompanyName
+    files:
+      - test_module_*.dim
+    category: "module"
+
+Properties: "properties.yaml"

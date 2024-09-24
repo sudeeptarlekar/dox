@@ -1,0 +1,7 @@
+module: ref_test_module1
+
+ref_test_module1_req1:
+  type: requirement
+
+ref_test_module1_req2:
+  type: requirement

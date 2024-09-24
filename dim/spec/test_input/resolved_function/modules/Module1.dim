@@ -1,0 +1,23 @@
+module: Test_Test_Core
+
+RESOLVE_001:
+  text: Test req
+  refs: RESOLVE_003, RESOLVE_011
+
+RESOLVE_002:
+  text: Test req
+  test_setups: on_target, manual
+
+RESOLVE_003:
+  text: Test req
+  review_status: accepted
+  tags: safety_mechanism
+  sources: abc.c
+
+RESOLVE_004:
+  text: Test req
+  tags: confidentiality, integrity, tested, covered
+  sources: abc.c, def.c,abc.c
+
+RESOLVE_005:
+  text: Test req

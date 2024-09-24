@@ -1,0 +1,15 @@
+module: test2
+
+module_r:
+  type: requirement
+
+module_i:
+  type: information
+
+module_p:
+  type: requirement
+  tags: process
+
+module_t:
+  type: requirement
+  tags: tool

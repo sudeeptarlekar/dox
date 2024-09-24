@@ -1,0 +1,4 @@
+module: ABC
+
+ID_1:
+  text: empty properties file loading test

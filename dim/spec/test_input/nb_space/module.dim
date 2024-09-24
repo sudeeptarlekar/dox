@@ -1,0 +1,5 @@
+module: nb_space
+
+Has_Non_Breaking_Space:
+  text:  ABC    ABC    
+  miscellaneous:  ABC    ABC    

@@ -1,0 +1,11 @@
+Config:
+  - originator: Customer
+    files: resolve_input.dim
+    category: input
+  - originator: CompanyName
+    files: resolve_module.dim
+    category: module
+  - originator: CompanyName
+    files: resolve_software.dim
+    disable_naming_convention_check: yes
+    category: software

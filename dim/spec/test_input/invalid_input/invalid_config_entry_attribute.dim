@@ -1,0 +1,5 @@
+Config:
+  - originator: CompanyName
+    files: abc
+    category: software
+    wrong: attribute

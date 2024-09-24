@@ -1,0 +1,5 @@
+module: invalid_format_style
+
+id_1:
+  text: when invalid format style is given for the attribute
+  dummy: lorem ipsum

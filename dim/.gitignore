@@ -1,0 +1,4 @@
+*.gem
+*.formatted
+coverage
+spec/test_input/resolved_function_temp/

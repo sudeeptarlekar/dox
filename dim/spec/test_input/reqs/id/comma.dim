@@ -1,0 +1,4 @@
+module: test
+
+ESR_Test,1:
+  text: This req has a comma.

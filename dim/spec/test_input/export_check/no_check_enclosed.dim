@@ -1,0 +1,18 @@
+module: no_enclosed_check
+
+
+no_check_1:
+  text: Another test req
+  tags: established, process, covered, tested
+  feature: Blah
+  change_request: Fasel
+  verification_criteria: Value xy shall equal value ab.
+  test_setups: on_target, off_target
+  miscellaneous: Additional random information
+  comment: Req is nice
+  asil: ASIL_A
+  tester: xy_company
+  refs:
+
+enclosed:
+    - images/invalid.jpeg

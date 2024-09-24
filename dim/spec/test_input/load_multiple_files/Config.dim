@@ -1,0 +1,4 @@
+Config:
+  CompanyName:
+    files: test_*.dim
+    category: module

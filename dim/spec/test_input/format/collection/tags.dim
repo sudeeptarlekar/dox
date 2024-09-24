@@ -1,0 +1,10 @@
+module: tag_test
+
+TAGS_R1:
+    tags:
+
+TAGS_R2:
+    tags: memory
+
+TAGS_R3:
+    tags:   memory,performance,memory

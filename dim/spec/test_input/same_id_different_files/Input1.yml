@@ -1,0 +1,7 @@
+module: input_1
+
+UniqueID:
+  text: great.
+
+SameID:
+  text: 1of2

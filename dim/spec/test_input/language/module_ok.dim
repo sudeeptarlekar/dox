@@ -1,0 +1,20 @@
+module: language
+
+ESR_Test_1:
+    text: |
+          juhu
+          juhu
+    text_spanish: ole
+    verification_criteria: test
+    verification_criteria_spanish: verificar
+    verification_criteria_english: verify
+
+ESR_Test_2:
+    text: mist
+    text_english: damn
+    comment: Kommentar
+    comment_english: comment
+
+ESR_Test_3:
+    text: achso
+    text_french:

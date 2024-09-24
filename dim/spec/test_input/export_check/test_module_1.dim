@@ -1,0 +1,23 @@
+module: test_module_1
+
+test_id_1:
+  text: Another test req
+  tags: established, process, covered, tested
+  feature: Blah
+  change_request: Fasel
+  verification_criteria: Value xy shall equal value ab.
+  test_setups: on_target, off_target
+  miscellaneous: Additional random information
+  comment: Req is nice
+  asil: ASIL_A
+  tester: xy_company
+  refs: test_id_2, test_id_1b
+
+test_id_1b:
+  text: Second test req <html><b>Bold</b></html>
+
+test_id_1c:
+  text: Third test req <html><b>Bold</b>
+  verification_criteria_english: Verify me!
+  text_german: Das ist Nummer drei.
+  miscellaneous: Misc.

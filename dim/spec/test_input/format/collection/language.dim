@@ -1,0 +1,26 @@
+module: language
+
+LANGUAGE_1:
+    comment: c
+    comment_bla: c_bla
+
+LANGUAGE_2:
+    text_bla: t_bla
+
+LANGUAGE_3:
+    text_bla_fasel: t_bla
+
+LANGUAGE_4:
+    text_bla:
+
+LANGUAGE_5:
+    verification_criteria_bla: vc
+
+LANGUAGE_6:
+    verification_criteria_blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: x x x x x x x x x
+
+LANGUAGE_7:
+    verification_criteria_blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: x x x x x x x x x x x x x x x
+    
+LANGUAGE_8:
+    verification_criteria_blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x

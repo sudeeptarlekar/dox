@@ -1,0 +1,17 @@
+module: test
+
+test_id_1:
+  type: requirement
+  text: First req
+
+test_id_2:
+  type: requirement
+  text: Second test req
+
+test_id_3:
+  type: information
+  text: test info
+
+test_id_4:
+  type: requirement
+  text: Fourth test req

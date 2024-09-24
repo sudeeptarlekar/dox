@@ -1,0 +1,7 @@
+Config:
+  - originator: ABC
+    files: modules/valid_test_1.dim
+    category: system
+  - originator: DEF
+    files: modules/valid_test_2.dim
+    category: system
