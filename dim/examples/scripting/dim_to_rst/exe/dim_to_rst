@@ -6,6 +6,7 @@ require 'active_support/core_ext/string'
 require 'dim/loader'
 require 'erb'
 require 'fileutils'
+require 'stringio'
 
 # rubocop:disable Style/GlobalVars
 # (required by DIM)
